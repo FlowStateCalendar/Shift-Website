@@ -1,0 +1,42 @@
+{
+    "questions": [
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you often forget tasks, appointments, or special dates?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you often feel overwhelmed or burnt out by your workload?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you set goals but struggle to follow through on them?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you struggle to concentrate on one task at a time?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you have a structured plan for your daily or weekly schedule?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Have you organised your notification settings on your devices?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Would earning points, tracking streaks, or hitting milestones motivate you to stay on track?"
+        },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Do you often prioritise your mental or physical wellbeing (sleep, exercise and wellness)?"
+        },
+        { "answerFormat": "ATNslider", "question": "Do you take regular break whilst working?" },
+        {
+            "answerFormat": "ATNslider",
+            "question": "Would having more balance, structure, and motivation transform your daily life?"
+        },
+        { "answerFormat": "Device", "question": "which do you use the most?" }
+    ]
+}
