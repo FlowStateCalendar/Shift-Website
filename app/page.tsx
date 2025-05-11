@@ -1,5 +1,5 @@
 "use client";
-import { ModeToggle } from "@/components/theme-mode-toggle";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQuizStore } from "@/lib/store";
@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users, FlaskRound } from "lucide-react";
 import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export default function Home() {
     const router = useRouter();
@@ -47,6 +48,7 @@ export default function Home() {
     ];
     return (
         <div className="bg-background min-h-screen flex flex-col justify-between">
+            <Header />
             <section className="py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-bold pb-4 mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
