@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 
 interface POSTBody {
     email: string;
+    name: string;
     quiz: {
         question: string;
         answer: string;
@@ -28,6 +29,7 @@ export async function POST(request: Request) {
     await prisma.user.create({
         data: {
             email: body.email,
+            name: body.name,
             quiz: {
                 create: body.quiz.map((question) => ({
                     question: question.question,
