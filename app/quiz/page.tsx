@@ -111,17 +111,17 @@ export default function QuizPage() {
                         <p className="text-2xl mb-2">{quizData[currentQuestionIndex].question}</p>
                         {quizData[currentQuestionIndex].answerFormat == "ATNslider" ? (
                             <div className="flex flex-col items-center mt-10 w-full">
-                                <div className="flex flex-row items-center w-full mb-4">
+                                <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-start mr-4" onClick={() => nextQuestion(0)}>
                                             Yes
                                         </Button>
                                     </div>
-                                    <div className="flex flex-col items-center w-1/3">
+                                    {/* <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-center ml-4 mr-4" onClick={() => nextQuestion(2)}>
                                             Sometimes
                                         </Button>
-                                    </div>
+                                    </div> */}
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-end ml-4" onClick={() => nextQuestion(4)}>
                                             No
@@ -132,22 +132,16 @@ export default function QuizPage() {
                         ) : (
                             <div className="flex flex-col items-center mt-10 w-full">
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
-                                    <Button
-                                        onClick={() => {
-                                            submitAnswer("Android");
-                                        }}
-                                        className="m-4 "
-                                    >
-                                        Android
-                                    </Button>{" "}
-                                    <Button
-                                        onClick={() => {
-                                            submitAnswer("Ios");
-                                        }}
-                                        className="m-4"
-                                    >
-                                        iOS
-                                    </Button>{" "}
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <Button className="w-2/3 text-start mr-4" onClick={() => submitAnswer("Android")}>
+                                            Android
+                                        </Button>
+                                    </div>
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <Button className="w-2/3 text-start ml-4" onClick={() => submitAnswer("Ios")}>
+                                            iOS
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         )}
