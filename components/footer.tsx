@@ -1,4 +1,5 @@
 import { Twitter, Instagram, Github } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -34,9 +35,9 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Resources</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#" className="hover:text-white transition">
+                                    <Link href="#" className="hover:text-white transition">
                                         Quiz
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="hover:text-white transition">
@@ -45,7 +46,7 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <a href="#" className="hover:text-white transition">
-                                        Research
+                                        Updates
                                     </a>
                                 </li>
                                 <li>
@@ -59,23 +60,18 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Company</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="/about" className="hover:text-white transition">
+                                    <Link href="/about" className="hover:text-white transition">
                                         About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Careers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Partners
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="/contact-us" className="hover:text-white transition">
-                                        Contact
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" className="hover:text-white transition">
+                                        Join Us
                                     </a>
                                 </li>
                             </ul>
@@ -91,11 +87,6 @@ export default function Footer() {
                                 <li>
                                     <a href="#" className="hover:text-white transition">
                                         Terms of Service
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Accessibility
                                     </a>
                                 </li>
                             </ul>
