@@ -1,4 +1,5 @@
 import { Twitter, Instagram, Github } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
     return (
@@ -8,13 +9,12 @@ export default function Footer() {
                     <div className="w-full md:w-1/3 mb-10 md:mb-0">
                         <div className="flex items-center mb-4">
                             <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">
-                                N
+                                F
                             </div>
-                            <span className="ml-3 text-xl font-bold text-white">NeuroApp</span>
+                            <span className="ml-3 text-xl font-bold text-white">Flowstate</span>
                         </div>
                         <p className="mb-4 max-w-xs">
-                            Supporting neurodiverse individuals through technology, community, and evidence-based
-                            resources.
+                            Supporting neurodiverse individuals through technology.
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="text-neutral-400 hover:text-white transition" aria-label="Twitter">
@@ -34,9 +34,9 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Resources</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#" className="hover:text-white transition">
+                                    <Link href="#" className="hover:text-white transition">
                                         Quiz
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="hover:text-white transition">
@@ -45,7 +45,7 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <a href="#" className="hover:text-white transition">
-                                        Research
+                                        Updates
                                     </a>
                                 </li>
                                 <li>
@@ -59,23 +59,18 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Company</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#" className="hover:text-white transition">
+                                    <Link href="/about" className="hover:text-white transition">
                                         About Us
+                                    </Link>
+                                </li>
+                                <li>
+                                    <a href="/contact-us" className="hover:text-white transition">
+                                        Contact Us
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" className="hover:text-white transition">
-                                        Careers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Partners
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Contact
+                                        Join Us
                                     </a>
                                 </li>
                             </ul>
@@ -93,18 +88,13 @@ export default function Footer() {
                                         Terms of Service
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" className="hover:text-white transition">
-                                        Accessibility
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div className="border-t border-neutral-800 mt-10 pt-8 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} NeuroApp. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Flowstate Calendar. All rights reserved.</p>
                 </div>
             </div>
         </footer>
