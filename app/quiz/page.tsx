@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { Progress } from "@/components/ui/progress";
 import { useQuizStore } from "@/lib/store";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -52,7 +53,7 @@ export default function QuizPage() {
         },
         { 
             answerFormat: "Device", 
-            question: "Which do you use the most?" 
+            question: "Which device type do you use most?" 
         },
     ];
     // Doesnt handle the last question that is for submit answer
@@ -102,8 +103,8 @@ export default function QuizPage() {
                 <div className="flex flex-col items-center justify-center w-2/3 max-w-md p-4 rounded-lg">
                     <div className="flex flex-row items-center justify-between w-full mb-4">
                         <div className="flex flex-col items-center w-full">
-                            <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} out of 10</h1>
-                            <Slider className="w-full" value={[currentQuestionIndex]} step={1} max={10} />
+                            <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} of 10</h1>
+                            <Progress className="w-full" value={currentQuestionIndex*10} />
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full bg-border rounded-lg p-4">
@@ -147,14 +148,6 @@ export default function QuizPage() {
                                     >
                                         iOS
                                     </Button>{" "}
-                                    <Button
-                                        onClick={() => {
-                                            submitAnswer("Windows");
-                                        }}
-                                        className="m-4"
-                                    >
-                                        Windows
-                                    </Button>
                                 </div>
                             </div>
                         )}
