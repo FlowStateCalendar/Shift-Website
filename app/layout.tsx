@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Stride Calendar Quiz",
+    title: "Flowstate Quiz",
     description: "Find out your productivity score",
 };
 

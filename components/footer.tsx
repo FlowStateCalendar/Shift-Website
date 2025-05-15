@@ -8,9 +8,9 @@ export default function Footer() {
                     <div className="w-full md:w-1/3 mb-10 md:mb-0">
                         <div className="flex items-center mb-4">
                             <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl">
-                                N
+                                F
                             </div>
-                            <span className="ml-3 text-xl font-bold text-white">NeuroApp</span>
+                            <span className="ml-3 text-xl font-bold text-white">Flowstate</span>
                         </div>
                         <p className="mb-4 max-w-xs">
                             Supporting neurodiverse individuals through technology, community, and evidence-based
@@ -59,7 +59,7 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Company</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#" className="hover:text-white transition">
+                                    <a href="/about" className="hover:text-white transition">
                                         About Us
                                     </a>
                                 </li>
@@ -74,7 +74,7 @@ export default function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:text-white transition">
+                                    <a href="/contact-us" className="hover:text-white transition">
                                         Contact
                                     </a>
                                 </li>
