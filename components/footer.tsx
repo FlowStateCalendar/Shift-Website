@@ -14,8 +14,7 @@ export default function Footer() {
                             <span className="ml-3 text-xl font-bold text-white">Flowstate</span>
                         </div>
                         <p className="mb-4 max-w-xs">
-                            Supporting neurodiverse individuals through technology, community, and evidence-based
-                            resources.
+                            Supporting neurodiverse individuals through technology.
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="text-neutral-400 hover:text-white transition" aria-label="Twitter">
@@ -95,7 +94,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-neutral-800 mt-10 pt-8 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} NeuroApp. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Flowstate Calendar. All rights reserved.</p>
                 </div>
             </div>
         </footer>
