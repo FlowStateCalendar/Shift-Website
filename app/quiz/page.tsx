@@ -40,7 +40,7 @@ export default function QuizPage() {
         },
         {
             answerFormat: "ATNslider",
-            question: "Do you often prioritise your mental or physical wellbeing (sleep, exercise and wellness)?",
+            question: "Do you often prioritise your mental and physical wellbeing (sleep, exercise and wellness)?",
         },
         { 
             answerFormat: "ATNslider", 
