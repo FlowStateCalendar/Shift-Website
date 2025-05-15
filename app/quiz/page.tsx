@@ -42,12 +42,18 @@ export default function QuizPage() {
             answerFormat: "ATNslider",
             question: "Do you often prioritise your mental or physical wellbeing (sleep, exercise and wellness)?",
         },
-        { answerFormat: "ATNslider", question: "Do you take regular break whilst working?" },
+        { 
+            answerFormat: "ATNslider", 
+            question: "Do you take regular break whilst working?" 
+        },
         {
             answerFormat: "ATNslider",
             question: "Would having more balance, structure, and motivation transform your daily life?",
         },
-        { answerFormat: "Device", question: "which do you use the most?" },
+        { 
+            answerFormat: "Device", 
+            question: "Which do you use the most?" 
+        },
     ];
     // Doesnt handle the last question that is for submit answer
     function nextQuestion(score: number) {
@@ -96,7 +102,7 @@ export default function QuizPage() {
                 <div className="flex flex-col items-center justify-center w-2/3 max-w-md p-4 rounded-lg">
                     <div className="flex flex-row items-center justify-between w-full mb-4">
                         <div className="flex flex-col items-center w-full">
-                            <h1 className="text-xl font-bold mb-2 w-full">question {currentQuestionIndex} out of 10</h1>
+                            <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} out of 10</h1>
                             <Slider className="w-full" value={[currentQuestionIndex]} step={1} max={10} />
                         </div>
                     </div>
@@ -107,17 +113,17 @@ export default function QuizPage() {
                                 <div className="flex flex-row items-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-start mr-4" onClick={() => nextQuestion(0)}>
-                                            Not at all
+                                            Yes
                                         </Button>
                                     </div>
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-center ml-4 mr-4" onClick={() => nextQuestion(2)}>
-                                            Somewhat
+                                            Sometimes
                                         </Button>
                                     </div>
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-end ml-4" onClick={() => nextQuestion(4)}>
-                                            Very much
+                                            No
                                         </Button>
                                     </div>
                                 </div>
@@ -139,7 +145,7 @@ export default function QuizPage() {
                                         }}
                                         className="m-4"
                                     >
-                                        Ios
+                                        iOS
                                     </Button>{" "}
                                     <Button
                                         onClick={() => {
