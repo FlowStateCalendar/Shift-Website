@@ -1,5 +1,7 @@
 "use client";
 
+import { ModeToggle } from "./theme-mode-toggle";
+
 export default function Header() {
   return (
     <header className="w-full border-b bg-background text-foreground shadow-sm">
@@ -7,8 +9,10 @@ export default function Header() {
         <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
           F
         </div>
-        <span className="ml-3 text-xl font-bold text-foreground">
+        
+        <span className="ml-3 text-xl font-bold text-foreground inline-flex justify-between w-full">
           Flowstate
+          <ModeToggle />
         </span>{" "}
       </div>
     </header>
