@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <div className="bg-background min-h-screen flex flex-col justify-between">
       <Header />
-      <section className="py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
+      <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold pb-4 mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Supporting Neurodiversity Through Technology
@@ -70,7 +70,8 @@ export default function Home() {
           </p>
 
           <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md">
-            <CardContent className="pt-6">
+          <h1>Enter your details to get started!</h1> 
+            <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="text-left">
                   <Label htmlFor="name" className="text-sm font-medium">
@@ -126,8 +127,10 @@ export default function Home() {
             ))}
           </div> */}
         </div>
+        <div>
+          <img src="components\assets\quizImage" alt="Woman thinking about her tasks" />
+        </div>
       </section>
-
       <Footer />
     </div>
   );
