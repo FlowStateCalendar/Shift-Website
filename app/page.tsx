@@ -114,9 +114,7 @@ export default function Home() {
             {features.map((feature, index) => (
               <Card key={index} className="bg-popover">
                 <CardContent className="p-6">
-                  <div
-                    className={`h-12 w-12 bg-popover rounded-lg flex items-center justify-center mb-4`}
-                  >
+                  <div className="h-12 w-12 bg-popover rounded-lg flex items-center justify-center mb-4">
                     {feature.icon}
                   </div>
                   <h2 className="text-xl font-semibold mb-2">
