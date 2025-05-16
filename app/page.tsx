@@ -127,9 +127,9 @@ export default function Home() {
             ))}
           </div> */}
         </div>
-        <div>
-          <img src="components\assets\quizImage" alt="Woman thinking about her tasks" />
-        </div>
+        {/* <div>
+          <img src="components\assets\quizImage.png" alt="Woman thinking about her tasks" width={500} height={500} />
+        </div> */}
       </section>
       <Footer />
     </div>
