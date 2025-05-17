@@ -26,36 +26,36 @@ export default function ThankYou() {
 
     return (
         <section>
-            {/* <Header /> */}
-                <div className="bg-background flex w-full h-screen flex-col items-center justify-center text-center">
-                    <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-10">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
-                    <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
-                        <div className="lg:w-100 lg:h-80 md:w-80 md:h-60 w-70 md:p-8 p-6">
-                            <RadialGraph score={score} scorelevel={scorelevel} />
-                        </div>
-                        <div className="text-center md:text-left flex flex-col items-left justify-center lg:w-1/3 md:w-1/2 w-full md:p-6 lg:p-8">
-                            <p className="lg:text-lg md:mb-5 md:p-0 p-2">
-                                Your productivity score is {scorelevel} at {score} giving you great foundations and lots of
-                                opportunity for improvement
-                            </p>
+            <Header />
+            <div className="bg-background flex w-full h-screen flex-col items-center justify-start md:justify-center text-center">
+                <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-10">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
+                <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
+                    <div className="lg:w-100 lg:h-80 md:w-80 md:h-60 w-70 md:p-8 p-6">
+                        <RadialGraph score={score} scorelevel={scorelevel} />
+                    </div>
+                    <div className="text-center md:text-left flex flex-col items-left justify-center lg:w-1/3 md:w-1/2 w-full md:p-6 lg:p-8">
+                        <p className="lg:text-lg md:mb-5 md:p-0 p-2">
+                            Your productivity score is {scorelevel} at {score} giving you great foundations and lots of
+                            opportunity for improvement
+                        </p>
 
-                            <p className="lg:text-lg md:mb-5 md:p-0 mb-2 p-2">
-                                The great news is, this has been time well spent as you have to be able to know your
-                                starting point to make strides in the right direction. Congratulations on doing that today.
-                            </p>
-                            <h1 className="text-blue-300 lg:text-xl">
-                                Our <b>Favourite 4 Features</b> of the app:
-                            </h1>
-                            <ul className="list-disc list-inside lg:text-lg">
-                                <li>Personalised productivity tips</li>
-                                <li>Neurodiverse friendly design</li>
-                                <li>Gamified experience</li>
-                                <li>Community support</li>
-                            </ul>   
-                        </div>
-                        
+                        <p className="lg:text-lg md:mb-5 md:p-0 mb-2 p-2">
+                            The great news is, this has been time well spent as you have to be able to know your
+                            starting point to make strides in the right direction. Congratulations on doing that today.
+                        </p>
+                        <h1 className="text-blue-300 lg:text-xl">
+                            Our <b>Favourite 4 Features</b> of the app:
+                        </h1>
+                        <ul className="list-disc list-inside lg:text-lg">
+                            <li>Personalised productivity tips</li>
+                            <li>Neurodiverse friendly design</li>
+                            <li>Gamified experience</li>
+                            <li>Community support</li>
+                        </ul>   
                     </div>
                 </div>
+                {/* Add waitlist here */}
+            </div>
             {/* <Footer />             */}
         </section>
     );
