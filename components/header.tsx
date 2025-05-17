@@ -12,7 +12,7 @@ export default function Header() {
         
         <span className="ml-3 text-xl font-bold text-foreground inline-flex justify-between w-full">
           Flowstate
-          <ModeToggle />
+          {/* <ModeToggle /> */}
         </span>{" "}
       </div>
     </header>
