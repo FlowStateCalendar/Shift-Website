@@ -24,7 +24,7 @@ const chartConfig = {
 export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
     return (
         <Card className="flex flex-col">
-            <CardHeader className="items-center pb-0">
+            <CardHeader className="items-center justify-center pb-0">
                 <CardTitle>Your Score</CardTitle>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
