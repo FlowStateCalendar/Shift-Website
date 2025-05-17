@@ -27,8 +27,8 @@ export default function ThankYou() {
     return (
         <section>
             {/* <Header /> */}
-                <div className="flex w-full h-screen flex-col items-center justify-center text-center">
-                    <h1 className="text-primary text-4xl font-bold md:mb-10">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
+                <div className="bg-background flex w-full h-screen flex-col items-center justify-center text-center">
+                    <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-10">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
                     <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
                         <div className="lg:w-100 lg:h-80 md:w-80 md:h-60 w-70 md:p-8 p-6">
                             <RadialGraph score={score} scorelevel={scorelevel} />

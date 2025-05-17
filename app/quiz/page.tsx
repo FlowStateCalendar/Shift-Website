@@ -100,14 +100,14 @@ export default function QuizPage() {
         <div className="bg-background min-h-screen flex flex-col justify-between">
             <Header />
             <div className="flex flex-grow justify-center align-center text-center bg-gradient-to-b from-primary/5 to-background">
-                <div className="flex flex-col items-center justify-center w-2/3 max-w-md p-4 rounded-lg">
+                <div className="flex flex-col items-center justify-center w-full md:w-2/3 max-w-md p-4 rounded-lg">
                     <div className="flex flex-row items-center justify-between w-full mb-4">
                         <div className="flex flex-col items-center w-full">
                             <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} of 10</h1>
                             <Progress className="w-full" value={currentQuestionIndex*10} />
                         </div>
                     </div>
-                    <div className="flex flex-col items-center justify-center w-full bg-border rounded-lg p-4">
+                    <div className="flex flex-col items-center justify-center w-full bg-muted rounded-lg p-4">
                         <p className="text-2xl mb-2">{quizData[currentQuestionIndex].question}</p>
                         {quizData[currentQuestionIndex].answerFormat == "ATNslider" ? (
                             <div className="flex flex-col items-center mt-10 w-full">

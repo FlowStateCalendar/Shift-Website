@@ -57,7 +57,7 @@ export default function Home() {
     },
   ];
   return (
-    <div className="bg-background min-h-screen flex flex-col justify-between">
+    <div className="bg-background h-max flex flex-col justify-between">
       <Header />
       <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-4xl mx-auto text-center">
@@ -131,7 +131,7 @@ export default function Home() {
           <img src="components\assets\quizImage.png" alt="Woman thinking about her tasks" width={500} height={500} />
         </div> */}
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
