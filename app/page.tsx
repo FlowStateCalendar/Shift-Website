@@ -8,109 +8,118 @@ import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users, FlaskRound } from "lucide-react";
-import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 export default function Home() {
-  const router = useRouter();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+    const router = useRouter();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !email) {
-      return;
-    }
-    // Check if email is valid
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return;
-    }
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!name || !email) {
+            return;
+        }
+        // Check if email is valid
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return;
+        }
 
-    useQuizStore.getState().reset();
-    useQuizStore.getState().setemail(email);
-    useQuizStore.getState().setname(name);
-    router.push("/quiz");
-  };
+        useQuizStore.getState().reset();
+        useQuizStore.getState().setemail(email);
+        useQuizStore.getState().setname(name);
+        router.push("/quiz");
+    };
 
-  const features = [
-    {
-      title: "Personalized Insights",
-      description:
-        "Get a detailed report about your neurodiverse strengths and areas for growth based on our comprehensive assessment.",
-      icon: <Heart className="fg-popover bg-popover" />,
-      bgColor: "bg-blue-100",
-    },
-    {
-      title: "Community Connection",
-      description:
-        "Join groups with similar profiles to share experiences, strategies, and support for common challenges.",
-      icon: <Users className="fg-popover bg-popover" />,
-      bgColor: "bg-green-100",
-    },
-    {
-      title: "Research-Backed Tools",
-      description:
-        "Access strategies and resources developed by experts in neurodiversity, designed for real-world application.",
-      icon: <FlaskRound className="fg-popover bg-popover" />,
-      bgColor: "bg-purple-100",
-    },
-  ];
-  return (
-    <div className="bg-background h-max flex flex-col justify-between">
-      <Header />
-      <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl pb-4 mb-6 ">
-            <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Neurodivergent</b> and <b className="text-accent">struggling</b> to achieve your goals?
-          </h1>
-          <p className="text-2xl mb-8 max-w-2xl mx-auto">
-            This 60 second quiz has been<br/> designed to highlight areas of strength and weakness <br/> when it comes to how you use your time. <br/> <br/> <b>Want to discover how you can <br/> achieve more of the goals you set?</b>
-          </p>
-          
-          <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md mt-10 m-2 sm:m-auto">
-            <h1 className="text-lg"><b>Enter your details to get started!</b></h1> 
-            <CardContent className="">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="text-left">
-                  <Label htmlFor="name" className="text-sm font-medium">
-                    Your Name
-                  </Label>
-                  <Input
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Jane Smith"
-                    className="mt-1"
-                  />
-                </div>
+    const features = [
+        {
+            title: "Personalized Insights",
+            description:
+                "Get a detailed report about your neurodiverse strengths and areas for growth based on our comprehensive assessment.",
+            icon: <Heart className="fg-popover bg-popover" />,
+            bgColor: "bg-blue-100",
+        },
+        {
+            title: "Community Connection",
+            description:
+                "Join groups with similar profiles to share experiences, strategies, and support for common challenges.",
+            icon: <Users className="fg-popover bg-popover" />,
+            bgColor: "bg-green-100",
+        },
+        {
+            title: "Research-Backed Tools",
+            description:
+                "Access strategies and resources developed by experts in neurodiversity, designed for real-world application.",
+            icon: <FlaskRound className="fg-popover bg-popover" />,
+            bgColor: "bg-purple-100",
+        },
+    ];
+    return (
+        <div className="bg-background h-max flex flex-col justify-between">
+            <Header />
+            <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-4xl md:text-5xl pb-4 mb-6 ">
+                        <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                            Neurodivergent
+                        </b>{" "}
+                        and <b className="text-accent">struggling</b> to achieve your goals?
+                    </h1>
+                    <p className="text-2xl mb-8 max-w-2xl mx-auto">
+                        This 60 second quiz has been
+                        <br /> designed to highlight areas of strength and weakness <br /> when it comes to how you use
+                        your time. <br /> <br />{" "}
+                        <b>
+                            Want to discover how you can <br /> achieve more of the goals you set?
+                        </b>
+                    </p>
 
-                <div className="text-left mb-6">
-                  <Label htmlFor="email" className="text-sm font-medium">
-                    Email Address
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="jane@example.com"
-                    className="mt-1"
-                  />
-                </div>
+                    <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md mt-10 m-2 sm:m-auto">
+                        <h1 className="text-lg">
+                            <b>Enter your details to get started!</b>
+                        </h1>
+                        <CardContent className="">
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <div className="text-left">
+                                    <Label htmlFor="name" className="text-sm font-medium">
+                                        Your Name
+                                    </Label>
+                                    <Input
+                                        id="name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        placeholder="Jane Smith"
+                                        className="mt-1"
+                                    />
+                                </div>
 
-                <Button
-                  type="submit"
-                  className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 w-full"
-                  size="lg"
-                >
-                  Take the Quiz
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                                <div className="text-left mb-6">
+                                    <Label htmlFor="email" className="text-sm font-medium">
+                                        Email Address
+                                    </Label>
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="jane@example.com"
+                                        className="mt-1"
+                                    />
+                                </div>
 
-          {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                                <Button
+                                    type="submit"
+                                    className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 w-full"
+                                    size="lg"
+                                >
+                                    Take the Quiz
+                                </Button>
+                            </form>
+                        </CardContent>
+                    </Card>
+
+                    {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
             {features.map((feature, index) => (
               <Card key={index} className="bg-popover">
                 <CardContent className="p-6">
@@ -125,12 +134,12 @@ export default function Home() {
               </Card>
             ))}
           </div> */}
-        </div>
-        {/* <div>
+                </div>
+                {/* <div>
           <img src="components\assets\quizImage.png" alt="Woman thinking about her tasks" width={500} height={500} />
         </div> */}
-      </section>
-      {/* <Footer /> */}
-    </div>
-  );
+            </section>
+            {/* <Footer /> */}
+        </div>
+    );
 }

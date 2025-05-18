@@ -1,11 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { useQuizStore } from "@/lib/store";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "@/components/header";
 
 export default function QuizPage() {
     const router = useRouter();
