@@ -61,17 +61,16 @@ export default function Home() {
       <Header />
       <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold pb-4 mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Supporting Neurodiversity Through Technology
+          <h1 className="text-4xl md:text-5xl pb-4 mb-6 ">
+            <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Neurodivergent</b> and <b>struggling</b> to achieve your goals?
           </h1>
-          <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-            NeuroApp helps neurodiverse individuals discover their strengths,
-            understand their patterns, and connect with supportive communities.
+          <p className="text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto ">
+            This 60 second quiz has been<br/> designed to highlight areas of strength and weakness <br/> when it comes to how you use your time. <br/> <br/> <b>Want to discover how you can <br/> achieve more of the goals you set?</b>
           </p>
-
-          <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md">
-          <h1>Enter your details to get started!</h1> 
-            <CardContent>
+          
+          <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md mt-10 m-2 sm:m-auto">
+            <h1 className="text-lg"><b>Enter your details to get started!</b></h1> 
+            <CardContent className="">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="text-left">
                   <Label htmlFor="name" className="text-sm font-medium">
@@ -86,7 +85,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="text-left mb-4">
+                <div className="text-left mb-6">
                   <Label htmlFor="email" className="text-sm font-medium">
                     Email Address
                   </Label>
