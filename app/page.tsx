@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, FlaskRound } from "lucide-react";
 import Header from "@/components/header";
 
 export default function Home() {
@@ -32,29 +31,6 @@ export default function Home() {
         router.push("/quiz");
     };
 
-    const features = [
-        {
-            title: "Personalized Insights",
-            description:
-                "Get a detailed report about your neurodiverse strengths and areas for growth based on our comprehensive assessment.",
-            icon: <Heart className="fg-popover bg-popover" />,
-            bgColor: "bg-blue-100",
-        },
-        {
-            title: "Community Connection",
-            description:
-                "Join groups with similar profiles to share experiences, strategies, and support for common challenges.",
-            icon: <Users className="fg-popover bg-popover" />,
-            bgColor: "bg-green-100",
-        },
-        {
-            title: "Research-Backed Tools",
-            description:
-                "Access strategies and resources developed by experts in neurodiversity, designed for real-world application.",
-            icon: <FlaskRound className="fg-popover bg-popover" />,
-            bgColor: "bg-purple-100",
-        },
-    ];
     return (
         <div className="bg-background h-max flex flex-col justify-between">
             <Header />
