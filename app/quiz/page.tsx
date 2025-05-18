@@ -98,7 +98,7 @@ export default function QuizPage() {
 
     return (
         <div className="bg-background min-h-screen flex flex-col justify-between">
-            <Header />
+            {/* <Header /> */}
             <div className="flex flex-grow justify-center align-center text-center bg-gradient-to-b from-primary/5 to-background">
                 <div className="flex flex-col items-center justify-center w-full md:w-2/3 max-w-md p-4 rounded-lg">
                     <div className="flex flex-row items-center justify-between w-full mb-4">
