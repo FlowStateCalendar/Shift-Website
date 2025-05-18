@@ -43,17 +43,17 @@ export default function QuizPage() {
             answerFormat: "ATNslider",
             question: "Do you often prioritise your mental and physical wellbeing (sleep, exercise and wellness)?",
         },
-        { 
-            answerFormat: "ATNslider", 
-            question: "Do you take regular break whilst working?" 
+        {
+            answerFormat: "ATNslider",
+            question: "Do you take regular break whilst working?",
         },
         {
             answerFormat: "ATNslider",
             question: "Would having more balance, structure, and motivation transform your daily life?",
         },
-        { 
-            answerFormat: "Device", 
-            question: "Which device type do you use most?" 
+        {
+            answerFormat: "Device",
+            question: "Which device type do you use most?",
         },
     ];
     // Doesnt handle the last question that is for submit answer
@@ -77,6 +77,12 @@ export default function QuizPage() {
                 answer: finalanswer,
             },
         ]);
+
+        //todo make a page to add names and then submit
+        if (useQuizStore.getState().name == "" || useQuizStore.getState().email == "") {
+            alert("Please enter your name and email");
+            return;
+        }
 
         fetch("/api/submit", {
             method: "POST",
@@ -104,7 +110,7 @@ export default function QuizPage() {
                     <div className="flex flex-row items-center justify-between w-full mb-4">
                         <div className="flex flex-col items-center w-full">
                             <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} of 10</h1>
-                            <Progress className="w-full" value={currentQuestionIndex*10} />
+                            <Progress className="w-full" value={currentQuestionIndex * 10} />
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full bg-muted rounded-lg p-4">
@@ -133,7 +139,10 @@ export default function QuizPage() {
                             <div className="flex flex-col items-center mt-10 w-full">
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-start mr-4" onClick={() => submitAnswer("Android")}>
+                                        <Button
+                                            className="w-2/3 text-start mr-4"
+                                            onClick={() => submitAnswer("Android")}
+                                        >
                                             Android
                                         </Button>
                                     </div>
