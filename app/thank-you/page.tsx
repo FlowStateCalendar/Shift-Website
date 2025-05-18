@@ -63,7 +63,7 @@ export default function ThankYou() {
         <section>
             <Header />
             <div className="bg-background flex w-full h-screen flex-col items-center justify-start text-center">
-                <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-2 p-4">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
+                <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-2 lg:pt-10 p-4">Thank you for taking the <br/> Neurodiverse Productivity Quiz</h1>
                 <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
                     <div className="lg:w-100 lg:h-80 md:w-80 md:h-60 w-70 md:p-8 p-6">
                         <RadialGraph score={score} scorelevel={scorelevel} />
@@ -76,20 +76,20 @@ export default function ThankYou() {
                             We are developing an app to help with productivity. Check out some of the features below and visit our about page (coming soon) to learn more.
                         </p>
                         <div className="text-left p-4 md:p-0">
-                            <h1 className="text-blue-300 lg:text-xl">
-                                Our <b>Favourite 5 Features</b> of the app:
+                            <h1 className="text-blue-400 lg:text-2xl mb-2">
+                                Our <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Favourite 5 Features</b> of the app:
                             </h1>
                             <ul className="list-disc list-inside lg:text-md">
-                                <li>GOALS - Set your own or choose from the best pre-set goals for growth</li>
-                                <li>NOTIFICATIONS - Personalised reminders when it's time to work or complete a task</li>
-                                <li>FOCUS - Actually achieve your goals and avoid distractions with focus mode</li>
-                                <li>GAMIFICATION - Compete against your friends and create your own aquarium</li>
-                                <li>REWARDS - Get rewarded for progress, even with the small wins</li>
+                                <li><b>Goals</b> - Set your own or choose from the best pre-set goals for growth</li>
+                                <li><b>Notifications</b> - Personalised reminders when it's time to work or complete a task</li>
+                                <li><b>Focus</b> - Actually achieve your goals and avoid distractions with focus mode</li>
+                                <li><b>Gamification</b> - Compete against your friends and create your own aquarium</li>
+                                <li><b>Rewards</b> - Get rewarded for progress, even with the small wins</li>
                             </ul>   
                         </div>
                     </div>
                 </div>
-                <p className="lg:text-lg md:mb-5 md:p-0 mb-2 p-2">
+                <p className="lg:text-md md:mb-5 md:p-0 mb-2 p-2">
                     If you want to really set the wheels in motion then FOLLOW US @Flowstate to stay up to date on our progress!
                 </p>
                 {/* Add waitlist here */}
