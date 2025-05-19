@@ -118,12 +118,12 @@ export default function QuizPage() {
                             <div className="flex flex-col items-center mt-10 w-full">
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-start mr-4" onClick={() => currentQuestionIndex<4 ? nextQuestion(1) : nextQuestion(0)}>
+                                        <Button className="w-2/3 text-start mr-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(0) : nextQuestion(1)}>
                                             Yes
                                         </Button>
                                     </div>
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-end ml-4" onClick={() => currentQuestionIndex<4 ? nextQuestion(0) : nextQuestion(1)}>
+                                        <Button className="w-2/3 text-end ml-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(1) : nextQuestion(0)}>
                                             No
                                         </Button>
                                     </div>
