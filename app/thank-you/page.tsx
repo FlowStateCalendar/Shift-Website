@@ -2,6 +2,7 @@
 import Header from "@/components/header";
 import { RadialGraph } from "../../components/radial-graph";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function ThankYou() {
     const [score, setScore] = useState(0);
@@ -80,17 +81,15 @@ export default function ThankYou() {
                         <p className="lg:text-md md:mb-5 md:p-0 p-2">{renderScoreMessage()}</p>
                         <p className="lg:text-md md:mb-5 md:p-0 mb-2 p-2">
                             We are developing an app to help with productivity. Check out some of the features below and
-                            visit our about page (coming soon) to learn more. We are developing an app to help with
-                            productivity. Check out some of the features below and visit our about page (coming soon) to
-                            learn more.
+                            visit our about page (coming soon) to learn more.
                         </p>
                         <div className="text-left p-4 md:p-0">
                             <h1 className="text-accent lg:text-2xl mb-2">
-                                Our
+                                Our{" "} 
                                 <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                                    Favourite 5 Features
+                                    Favourite 5 Features 
                                 </b>
-                                of the app:
+                                {" "}of the app:
                             </h1>
                             <ul className="list-disc list-inside lg:text-md">
                                 <li>
@@ -119,7 +118,9 @@ export default function ThankYou() {
                         our progress!
                     </b>
                 </p>
-                {/* Add waitlist here */}
+                {/* <Button>
+                    Join the Waitlist
+                </Button> */}
             </div>
             {/* <Footer />             */}
         </section>
