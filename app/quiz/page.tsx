@@ -54,6 +54,7 @@ export default function QuizPage() {
             question: "Which device type do you use most?",
         },
     ];
+
     // Doesnt handle the last question that is for submit answer
     function nextQuestion(score: number) {
         console.log("quizData", quizData);
@@ -117,17 +118,12 @@ export default function QuizPage() {
                             <div className="flex flex-col items-center mt-10 w-full">
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-start mr-4" onClick={() => nextQuestion(0)}>
+                                        <Button className="w-2/3 text-start mr-4" onClick={() => currentQuestionIndex<4 ? nextQuestion(1) : nextQuestion(0)}>
                                             Yes
                                         </Button>
                                     </div>
-                                    {/* <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-center ml-4 mr-4" onClick={() => nextQuestion(2)}>
-                                            Sometimes
-                                        </Button>
-                                    </div> */}
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-end ml-4" onClick={() => nextQuestion(4)}>
+                                        <Button className="w-2/3 text-end ml-4" onClick={() => currentQuestionIndex<4 ? nextQuestion(0) : nextQuestion(1)}>
                                             No
                                         </Button>
                                     </div>
