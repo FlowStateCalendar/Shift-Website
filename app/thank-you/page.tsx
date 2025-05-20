@@ -10,7 +10,8 @@ export default function ThankYou() {
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
-        const score = Number(Number(searchParams.get("score")) * 2.5);
+        const score = Number(Number(searchParams.get("score")) * 10);
+        const email = String(searchParams.get("email"));
         console.log("score", score);
         let scorelevel = "";
         if (score < 50) {
@@ -66,6 +67,30 @@ export default function ThankYou() {
         }
     };
 
+    //EDIT THIS
+    const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+        const res = await fetch("/api/waitlist", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            }),
+        });
+
+        if (!res.ok) throw new Error("Failed to join waitlist");
+
+        console.log("Successfully added!");
+        // Optionally reset state or show a toast message
+        } catch (error) {
+        console.error("Submission error:", error);
+        }
+    };
+
+
     return (
         <section>
             <Header />
@@ -118,9 +143,11 @@ export default function ThankYou() {
                         our progress!
                     </b>
                 </p>
-                {/* <Button>
-                    Join the Waitlist
-                </Button> */}
+                <form onSubmit={handleWaitlist}>
+                    <Button type="submit" className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 w-1/2">
+                        Join the Waitlist
+                    </Button>
+                </form>
             </div>
             {/* <Footer />             */}
         </section>
