@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-interface Hero47Props {
+interface HeroProps {
   heading?: string;
   subheading?: string;
   description?: string;
@@ -22,11 +22,11 @@ interface Hero47Props {
   };
 }
 
-const Hero = ({
-  heading = "Epic Blocks",
-  subheading = " built with shadcn/ui & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
-  buttons = {
+export default function Hero() {
+  const heading = "Epic Blocks";
+  const subheading = " built with shadcn/ui & Tailwind";
+  const description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.";
+  const buttons = {
     primary: {
       text: "Get Started",
       url: "#",
@@ -39,8 +39,8 @@ const Hero = ({
   image = {
     src: "https://shadcnblocks.com/images/block/placeholder-dark-7-tall.svg",
     alt: "Placeholder",
-  },
-}: Hero47Props) => {
+  };
+
   return (
     <section className="bg-background py-20 lg:py-32">
       <div className="container flex flex-col items-center gap-10 lg:my-0 lg:flex-row">
@@ -89,4 +89,3 @@ const Hero = ({
   );
 };
 
-export { Hero };
