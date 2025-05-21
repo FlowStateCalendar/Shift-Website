@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import Header from "@/components/header";
 
 export default function Updates() {
   const updates = [
@@ -14,24 +15,6 @@ export default function Updates() {
       borderColor: "border-primary",
       badgeColor: "bg-blue-100 text-primary"
     },
-    {
-      title: "New Research Partnership",
-      timeframe: "1 month ago",
-      content: "NeuroApp has partnered with the Center for Neurodiversity Research to develop more nuanced assessment tools and expand our understanding of diverse cognitive patterns.",
-      tags: ["Research", "Partnerships", "Assessment Development"],
-      link: "Read the full announcement →",
-      borderColor: "border-secondary",
-      badgeColor: "bg-green-100 text-secondary"
-    },
-    {
-      title: "Community Feature Preview",
-      timeframe: "2 months ago",
-      content: "We've begun development on our community platform that will allow users to connect with others who have similar neurodiverse profiles. Check out the early designs and share your thoughts!",
-      tags: ["Community", "Feature Preview", "User Feedback"],
-      link: "See the preview designs →",
-      borderColor: "border-accent",
-      badgeColor: "bg-purple-100 text-accent"
-    }
   ];
 
   const roadmapItems = [
@@ -54,23 +37,14 @@ export default function Updates() {
         "Expert-contributed strategy guides"
       ],
       progressColor: "bg-secondary"
-    },
-    {
-      title: "Q1 2024: Tools & Integration",
-      progress: 5,
-      items: [
-        "Daily planning and routine tools",
-        "Calendar integration with accommodations",
-        "Mobile app development start"
-      ],
-      progressColor: "bg-neutral-300"
     }
   ];
 
   return (
     <section className="py-12">
+      <Header></Header>
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">Development Updates</h1>
+        <h1 className="text-3xl md:text-4xl font-bold m-8 text-center justify-start">Development Updates</h1>
         
         <Card className="bg-white mb-8">
           <CardContent className="p-6">

@@ -30,8 +30,8 @@ export default function ThankYou() {
             case "low":
                 return (
                     <>
-                        Your productivity score is <b className="text-accent">Low</b> at{" "}
-                        <b className="text-accent">{score}</b>, giving you lots of opportunity for improvement.
+                        Your productivity score is <b className="text-destructive-foreground">Low</b> at{" "}
+                        <b className="text-destructive-foreground">{score}</b>, giving you lots of opportunity for improvement.
                         <br />
                         <br />
                         The great news is, this has been time well spent as you have to be able to know your starting
@@ -41,8 +41,8 @@ export default function ThankYou() {
             case "medium":
                 return (
                     <>
-                        Your productivity score is <b className="text-accent">Medium</b> at{" "}
-                        <b className="text-accent">{score}</b>, giving you great foundations and lots of opportunity for
+                        Your productivity score is <b className="text-destructive-foreground">Medium</b> at{" "}
+                        <b className="text-destructive-foreground">{score}</b>, giving you great foundations and lots of opportunity for
                         improvement.
                         <br />
                         <br />
@@ -53,8 +53,8 @@ export default function ThankYou() {
             case "high":
                 return (
                     <>
-                        Your productivity score is <b className="text-accent">High</b> at{" "}
-                        <b className="text-accent">{score}</b>, meaning you truly value your time and want to maximise
+                        Your productivity score is <b className="text-destructive-foreground">High</b> at{" "}
+                        <b className="text-destructive-foreground">{score}</b>, meaning you truly value your time and want to maximise
                         your efforts.
                         <br />
                         <br />
@@ -72,21 +72,22 @@ export default function ThankYou() {
         e.preventDefault();
 
         try {
-        const res = await fetch("/api/waitlist", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-            }),
-        });
+            const res = await fetch("/api/waitlist", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                }),
+            });
 
-        if (!res.ok) throw new Error("Failed to join waitlist");
+            if (!res.ok) throw new Error("Failed to join waitlist");
 
-        console.log("Successfully added!");
-        // Optionally reset state or show a toast message
+            console.log("Successfully added!");
+            // Optionally reset state or show a toast message
+
         } catch (error) {
-        console.error("Submission error:", error);
+            console.error("Submission error:", error);
         }
     };
 
@@ -109,9 +110,9 @@ export default function ThankYou() {
                             visit our about page (coming soon) to learn more.
                         </p>
                         <div className="text-left p-4 md:p-0">
-                            <h1 className="text-accent lg:text-2xl mb-2">
+                            <h1 className="text-destructive-foreground lg:text-2xl mb-2">
                                 Our{" "} 
-                                <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                <b className="text-destructive">
                                     Favourite 5 Features 
                                 </b>
                                 {" "}of the app:
@@ -144,7 +145,7 @@ export default function ThankYou() {
                     </b>
                 </p>
                 <form onSubmit={handleWaitlist}>
-                    <Button type="submit" className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 w-1/2">
+                    <Button type="submit" className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30">
                         Join the Waitlist
                     </Button>
                 </form>

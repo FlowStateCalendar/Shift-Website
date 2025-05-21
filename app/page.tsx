@@ -37,10 +37,10 @@ export default function Home() {
             <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl pb-4 mb-6 ">
-                        <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        <b className="bg-gradient-to-r from-destructive to-destructive-foreground bg-clip-text text-transparent">
                             Neurodivergent
                         </b>{" "}
-                        and <b className="text-accent">struggling</b> to achieve your goals?
+                        and <b className="text-destructive-foreground">struggling</b> to achieve your goals?
                     </h1>
                     <p className="text-2xl mb-8 max-w-2xl mx-auto">
                         This 60 second quiz has been
