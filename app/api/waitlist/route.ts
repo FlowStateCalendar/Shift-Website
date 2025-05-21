@@ -3,38 +3,31 @@ import { NextResponse } from "next/server";
 
 interface POSTBody {
     email: string;
-    waitlist: boolean;
 }
 
 /**
- * Handles the POST request for setting waitlist to true for a user.
+ * Handles the POST request for adding an email to the waitlist.
  * @param request - The request object.
  */
 
 export async function POST(request: Request) {
     const body: POSTBody = await request.json();
+    const { email } = body;
 
-    //Checks for existing email
-    const existingUser = await prisma.user.findUnique({
+    const existingEmail = await prisma.waitlist.findUnique({
         where: {
-            email: body.email,
+            email: email,
         },
     });
-
-    if (existingUser) {
-        return NextResponse.json({ error: "User with this email already exists." }, { status: 400 });
+    if (existingEmail) {
+        return NextResponse.json({ message: "Email already exists" }, { status: 400 });
     }
 
-    //Updates waitlist if user exists
-    await prisma.user.update({
-        where: {
-            slug: body.email,
-        },
+    await prisma.waitlist.create({
         data: {
-            waitlist: true,
+            email: email,
         },
     });
 
-
-    return NextResponse.json({ message: "User added to waitlist successfully."}, { status: 200 });
+    return NextResponse.json({ message: "Email added to waitlist" }, { status: 200 });
 }
