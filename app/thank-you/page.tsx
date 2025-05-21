@@ -111,11 +111,11 @@ export default function ThankYou() {
                         </p>
                         <div className="text-left p-4 md:p-0">
                             <h1 className="text-destructive-foreground lg:text-2xl mb-2">
-                                Our{" "} 
+                                Our{" "}
                                 <b className="text-destructive">
-                                    Favourite 5 Features 
-                                </b>
-                                {" "}of the app:
+                                    Favourite 5 Features
+                                </b>{" "}
+                                of the app:
                             </h1>
                             <ul className="list-disc list-inside lg:text-md">
                                 <li>
