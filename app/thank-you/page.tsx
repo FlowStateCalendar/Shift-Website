@@ -2,7 +2,6 @@
 import Header from "@/components/header";
 import { RadialGraph } from "../../components/radial-graph";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export default function ThankYou() {
     const [score, setScore] = useState(0);
@@ -85,11 +84,11 @@ export default function ThankYou() {
                         </p>
                         <div className="text-left p-4 md:p-0">
                             <h1 className="text-accent lg:text-2xl mb-2">
-                                Our{" "} 
+                                Our{" "}
                                 <b className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                                    Favourite 5 Features 
-                                </b>
-                                {" "}of the app:
+                                    Favourite 5 Features
+                                </b>{" "}
+                                of the app:
                             </h1>
                             <ul className="list-disc list-inside lg:text-md">
                                 <li>
