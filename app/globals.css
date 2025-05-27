@@ -3,6 +3,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+  /* 
+  --branddark:#242633;
+  --brand1:#FFBFBB;
+  --brand2:#FAA1AD;
+  --brand3:#CD93AC;
+  --brand4:#ABD6EC;
+  --brand5:#AFB2DC;
+  --brand6:#9AB2CA; 
+  */
+
 :root {
   --background: #fafafa;
   --foreground: #0a0a0a;
@@ -37,15 +47,6 @@
   --sidebar-accent-foreground: #171717;
   --sidebar-border: #9AB2CA;
   --sidebar-ring: #9AB2CA;
-
-
-  --brand1:#FFBFBB;
-  --brand2-idk:#FAA1AD; 
-  --brand3:#CD93AC;
-  --brand4:#ABD6EC;
-  --brand5:#AFB2DC;
-  --brand6:#9AB2CA;
-
 }
 
 .dark {
@@ -81,14 +82,6 @@
   --sidebar-accent-foreground: #525252;
   --sidebar-border: #242633;
   --sidebar-ring: #AFB2DC;
-
-
-  --brand1:#FFBFBB;
-  --brand2:#FAA1AD;
-  --brand3:#CD93AC;
-  --brand4:#ABD6EC;
-  --brand5:#AFB2DC;
-  --brand6:#9AB2CA;
 }
 
 @theme inline {
