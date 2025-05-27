@@ -1,121 +1,90 @@
-"use client";
+"use client"
 
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useQuizStore } from "@/lib/store";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
+import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { useState } from "react";
+import { Modal } from "@/components/modal";
 
-export default function Home() {
-    const router = useRouter();
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!name || !email) {
-            return;
-        }
-        // Check if email is valid
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return;
-        }
-
-        useQuizStore.getState().reset();
-        useQuizStore.getState().setemail(email);
-        useQuizStore.getState().setname(name);
-        router.push("/quiz");
+interface HeroProps {
+  heading?: string;
+  subheading?: string;
+  description?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  buttons?: {
+    primary?: {
+      text: string;
+      url: string;
     };
-
-    return (
-        <div className="bg-background h-max flex flex-col justify-between">
-            <Header />
-            <section className="flex py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl pb-4 mb-6 ">
-                        <b className="bg-gradient-to-r from-destructive to-destructive-foreground bg-clip-text text-transparent">
-                            Neurodivergent
-                        </b>{" "}
-                        and <b className="text-destructive-foreground">struggling</b> to achieve your goals?
-                    </h1>
-                    <p className="text-2xl mb-8 max-w-2xl mx-auto">
-                        This 60 second quiz has been
-                        <br /> designed to highlight areas of strength and weakness <br /> when it comes to how you use
-                        your time. <br /> <br />{" "}
-                        <b>
-                            Want to discover how you can <br /> achieve more of the goals you set?
-                        </b>
-                    </p>
-
-                    <Card className="max-w-md mx-auto mb-8 border-primary/10 shadow-md mt-10 m-2 sm:m-auto">
-                        <h1 className="text-lg">
-                            <b>Enter your details to get started!</b>
-                        </h1>
-                        <CardContent className="">
-                            <form onSubmit={handleSubmit} className="space-y-4">
-                                <div className="text-left">
-                                    <Label htmlFor="name" className="text-sm font-medium">
-                                        Your Name
-                                    </Label>
-                                    <Input
-                                        id="name"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        placeholder="Jane Smith"
-                                        className="mt-1"
-                                    />
-                                </div>
-
-                                <div className="text-left mb-6">
-                                    <Label htmlFor="email" className="text-sm font-medium">
-                                        Email Address
-                                    </Label>
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="jane@example.com"
-                                        className="mt-1"
-                                    />
-                                </div>
-
-                                <Button
-                                    type="submit"
-                                    className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 w-full"
-                                    size="lg"
-                                >
-                                    Take the Quiz
-                                </Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-
-                    {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            {features.map((feature, index) => (
-              <Card key={index} className="bg-popover">
-                <CardContent className="p-6">
-                  <div className="h-12 w-12 bg-popover rounded-lg flex items-center justify-center mb-4">
-                    {feature.icon}
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">
-                    {feature.title}
-                  </h2>
-                  <p className="text-neutral-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div> */}
-                </div>
-                {/* <div>
-          <img src="components\assets\quizImage.png" alt="Woman thinking about her tasks" width={500} height={500} />
-        </div> */}
-            </section>
-            {/* <Footer /> */}
-        </div>
-    );
+    secondary?: {
+      text: string;
+      url: string;
+    };
+  };
 }
+
+export default function Hero() {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  return (
+    <section>
+      <Header></Header>
+      {showModal && <Modal onClose={() => setShowModal(false)}/>}
+      <div className="flex justify-center h-screen bg-accent">
+        <div className="container flex flex-col items-center justify-center gap-10 lg:my-0 lg:flex-row">
+          <div className="flex flex-col gap-7 lg:w-2/3 bg-background/75 p-4">
+            <h2 className="text-5xl font-semibold text-white md:text-5xl lg:text-8xl">
+              <span>Flowstate</span>
+              <span className="text-background"> built with shadcn/ui & Tailwind</span>
+            </h2>
+            <p className="text-base text-foreground md:text-lg lg:text-xl">
+              Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.
+            </p>
+            <div className="flex flex-wrap items-start gap-5 lg:gap-7">
+              <Button asChild className="hover:cursor-pointer">
+                <a onClick={() => setShowModal(true)}>
+                  <div className="flex items-center gap-2">
+                    <ArrowUpRight className="size-4" />
+                  </div>
+                  <span className="pr-6 pl-4 text-sm whitespace-nowrap lg:pr-8 lg:pl-6 lg:text-base">
+                    Join the waitlist
+                  </span>
+                </a>
+              </Button>
+              <Button asChild variant="link" className="underline">
+                <a href="/updates">Find out more</a>
+              </Button>
+            </div>
+          </div>
+          {/* <div className="relative z-10">
+            <div className="absolute top-2.5 !left-1/2 !h-[92%] !w-[69%] -translate-x-[52%] overflow-hidden rounded-[35px]">
+              <img
+                src="https://shadcnblocks.com/images/block/placeholder-dark-7-tall.svg"
+                alt="Placeholder"
+                className="size-full object-cover object-[50%_0%]"
+              />
+            </div>
+            <img
+              className="relative z-10"
+              src="https://shadcnblocks.com/images/block/mockups/phone-2.png"
+              width={450}
+              height={889}
+              alt="iphone"
+            />
+          </div> */}
+        </div>
+      </div>
+      {/* <span></span>
+      <div className="bg-background w-full h-screen">
+        <h1></h1>
+
+      </div> */}
+      <Footer></Footer>
+    </section>
+  );
+};
+
