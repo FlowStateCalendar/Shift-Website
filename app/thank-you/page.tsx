@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import { RadialGraph } from "../../components/radial-graph";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
 
 export default function ThankYou() {
     const [score, setScore] = useState(0);
@@ -150,7 +151,7 @@ export default function ThankYou() {
                     </Button>
                 </form>
             </div>
-            {/* <Footer />             */}
+            <Footer />            
         </section>
     );
 }
