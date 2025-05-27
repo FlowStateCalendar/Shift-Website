@@ -97,8 +97,7 @@ export default function QuizPage() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                //Add email here
-                router.push("/thank-you?score=" + data.score);
+                router.push("/thank-you?score=" + data.score + "&email=" + data.email); //&email or just email?
             });
     }
 

@@ -1,9 +1,11 @@
 import { X } from "lucide-react"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 export function Modal({ onClose }: { onClose: () => void }) {
         
+    const [email, setEmail] = useState("");
+
     useEffect(() => {
         // Lock scroll on mount
         document.body.style.overflow = "hidden";
@@ -30,6 +32,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                 "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    email: email,
                 }),
             });
 
@@ -51,10 +54,11 @@ export function Modal({ onClose }: { onClose: () => void }) {
                     <h1 className="text-2xl font-bold p-8">Join the Waitlist</h1>
                     <form className="flex flex-col" onSubmit={handleWaitlist}>
                         <input 
-                            type="email"
                             placeholder="janedoe@gmail.com"
                             required
                             className="text-center"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}                         
                         />
                         <Button type="submit" className="mt-8 px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform focus:ring-4 focus:ring-primary/30">
                             Join the Waitlist

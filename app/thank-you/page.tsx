@@ -8,11 +8,12 @@ import Footer from "@/components/footer";
 export default function ThankYou() {
     const [score, setScore] = useState(0);
     const [scorelevel, setScoreLevel] = useState("");
+    let useremail: string;
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const score = Number(Number(searchParams.get("score")) * 10);
-        const email = String(searchParams.get("email"));
+        useremail = String(searchParams.get("email"));
         console.log("score", score);
         let scorelevel = "";
         if (score < 50) {
@@ -79,6 +80,7 @@ export default function ThankYou() {
                 "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    email: useremail,
                 }),
             });
 
