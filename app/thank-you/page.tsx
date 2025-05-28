@@ -4,6 +4,7 @@ import { RadialGraph } from "../../components/radial-graph";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/footer";
+import { toast } from "sonner";
 
 export default function ThankYou() {
     const [score, setScore] = useState(0);
@@ -87,10 +88,11 @@ export default function ThankYou() {
             if (!res.ok) throw new Error("Failed to join waitlist");
 
             console.log("Successfully added!");
-            // Optionally reset state or show a toast message
+            toast("✓ Successfully added to the waitlist!");
 
         } catch (error) {
             console.error("Submission error:", error);
+            toast("X Make sure to use valid email which hasn't been registered.");
         }
     };
 

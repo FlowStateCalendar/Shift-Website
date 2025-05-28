@@ -1,6 +1,7 @@
 import { X } from "lucide-react"
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 export function Modal({ onClose }: { onClose: () => void }) {
         
@@ -42,10 +43,12 @@ export function Modal({ onClose }: { onClose: () => void }) {
     
             // Add toast
             onClose();
+            toast("✓ Successfully added to the waitlist!");
 
         } catch (error) {
             console.error("Submission error:", error);
             // Add toast
+            toast("X Make sure to use valid email which hasn't been registered.");
         }
     };
 
