@@ -17,7 +17,7 @@ export default function ContactPage() {
             Help us shape the future of neurodiversity.
           </p>
           <div className="mt-14 md:mt-24 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <div className="bg-primary text-primary-foreground p-6 pb-10 rounded-lg">
+            <div className="bg-secondary text-primary-foreground p-6 pb-10 rounded-lg">
               <div className="h-12 w-12 flex items-center justify-center bg-background text-foreground rounded-full">
                 <MailIcon />
               </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
               </Link>
             </div>
 
-            <div className="bg-primary text-primary-foreground p-6 pb-10 rounded-lg">
+            <div className="bg-accent text-primary-foreground p-6 pb-10 rounded-lg">
               <div className="h-12 w-12 flex items-center justify-center bg-background text-foreground rounded-full">
                 <MessageCircle />
               </div>

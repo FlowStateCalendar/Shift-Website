@@ -8,12 +8,30 @@ import Footer from "@/components/footer";
 export default function Updates() {
   const updates = [
     {
-      title: "Beta Testing Program Launch",
-      timeframe: "2 weeks ago",
-      content: "We're excited to announce the launch of our beta testing program! We're looking for neurodiverse individuals to help us refine our assessment quiz and provide feedback on the user experience.",
-      tags: ["Beta Testing", "User Experience", "Quiz Development"],
-      link: "Learn more about joining the beta →",
-      borderColor: "border-primary",
+      title: "No code Design Prototype",
+      timeframe: "Due 31st",
+      content: "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
+      //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+      //link: "Learn more about joining the beta →",
+      borderColor: "border-secondary",
+      badgeColor: "bg-primary text-primary-foreground"
+    },
+    {
+      title: "Website Development",
+      timeframe: "Ongoing",
+      content: "The new website is now live! The development will continue as we continue to improve and recieve feedback.",
+      //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+      //link: "Learn more about joining the beta →",
+      borderColor: "border-accent",
+      badgeColor: "bg-primary text-primary-foreground"
+    },
+    {
+      title: "Starting App Development",
+      timeframe: "1 Week Ago",
+      content: "The first few bits of development have begun!",
+      //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+      //link: "Learn more about joining the beta →",
+      borderColor: "border-secondary",
       badgeColor: "bg-primary text-primary-foreground"
     },
   ];
@@ -60,7 +78,7 @@ export default function Updates() {
         </Card>
         <div className="space-y-8">
             {updates.map((update, index) => (
-                <Card key={index} className={`bg-white border-l-4 ${update.borderColor}`}>
+                <Card key={index} className={`bg-white border-l-6 ${update.borderColor}`}>
                     <CardContent className="p-6">
                         <div className="flex flex-wrap justify-between items-start mb-4">
                             <h2 className="text-primary-foreground text-xl font-semibold">{update.title}</h2>
@@ -72,7 +90,7 @@ export default function Updates() {
                             </Badge>
                         </div>
                         <p className="text-primary-foreground mb-4">{update.content}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        {/* <div className="flex flex-wrap gap-2 mb-4">
                             {update.tags.map((tag, idx) => (
                                 <Badge
                                     key={idx}
@@ -85,7 +103,7 @@ export default function Updates() {
                         </div>
                         <a href="#" className="text-primary-foreground hover:text-accent font-medium">
                             {update.link}
-                        </a>
+                        </a> */}
                     </CardContent>
                 </Card>
             ))}
