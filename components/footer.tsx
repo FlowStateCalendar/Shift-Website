@@ -79,12 +79,12 @@ export default function Footer() {
                             <h3 className="font-semibold mb-4">Legal</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <a href="#" className="hover:text-accent transition">
+                                    <a href="/privacy-policy" className="hover:text-accent transition">
                                         Privacy Policy
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:text-accent transition">
+                                    <a href="terms" className="hover:text-accent transition">
                                         Terms of Service
                                     </a>
                                 </li>

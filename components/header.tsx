@@ -13,7 +13,7 @@ export default function Header() {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
-    <header className="w-full border-b bg-background text-foreground shadow-sm">
+    <header className="w-full border-b border-foreground/20 bg-background text-foreground shadow-sm">
       {showModal && <Modal onClose={() => setShowModal(false)}/>}
       <div className="container mx-auto flex items-center py-4 px-6">
         <div className="md:hidden">
