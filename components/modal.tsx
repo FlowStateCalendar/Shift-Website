@@ -39,10 +39,13 @@ export function Modal({ onClose }: { onClose: () => void }) {
             if (!res.ok) throw new Error("Failed to join waitlist");
 
             console.log("Successfully added!");
-            // Optionally reset state or show a toast message
+    
+            // Add toast
+            onClose();
 
         } catch (error) {
             console.error("Submission error:", error);
+            // Add toast
         }
     };
 

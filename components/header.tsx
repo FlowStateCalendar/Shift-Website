@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Modal } from "./modal";
 import { MobileMenu } from "./mobile-menu";
+import { toast } from "sonner";
 
 export default function Header() {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -29,6 +30,7 @@ export default function Header() {
             <Link href="/">
               Flowstate
             </Link>
+            <button onClick={() => toast("This is a test")}>Press</button>
           </div>
 
           <div className="hidden md:flex">
