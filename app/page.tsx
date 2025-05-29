@@ -34,15 +34,15 @@ export default function Hero() {
     <section>
       <Header></Header>
       {showModal && <Modal onClose={() => setShowModal(false)}/>}
-      <div className="flex justify-center h-screen bg-accent">
+      <div className="flex justify-center h-screen bg-sky-300">
         <div className="container flex flex-col items-center justify-center gap-10 lg:my-0 lg:flex-row">
-          <div className="flex flex-col gap-7 lg:w-2/3 bg-background/75 p-4">
-            <h2 className="text-5xl font-semibold text-white md:text-5xl lg:text-8xl">
+          <div className="flex flex-col gap-7 lg:w-2/3 bg-background/75 rounded-2xl p-8">
+            <h2 className="text-5xl font-semibold text-foreground md:text-5xl lg:text-8xl">
               <span>Flowstate</span>
-              <span className="text-background"> built with shadcn/ui & Tailwind</span>
+              <span className="text-foreground"> - letting neurodiversity thrive</span>
             </h2>
             <p className="text-base text-foreground md:text-lg lg:text-xl">
-              Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.
+              Your potential is real and we&apos;re just here to help you reach it. With the neurodiverse community, we&apos;re creating a tool that&apos;s finally built for your brain.
             </p>
             <div className="flex flex-wrap items-start gap-5 lg:gap-7">
               <Button asChild className="hover:cursor-pointer">
