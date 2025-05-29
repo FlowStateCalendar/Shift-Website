@@ -8,21 +8,21 @@ import Footer from "@/components/footer";
 export default function Updates() {
   const updates = [
     {
-      title: "No code Design Prototype",
-      timeframe: "Due 31st",
-      content: "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
-      //tags: ["Beta Testing", "User Experience", "Quiz Development"],
-      //link: "Learn more about joining the beta →",
-      borderColor: "border-secondary",
-      badgeColor: "bg-primary text-primary-foreground"
-    },
-    {
       title: "Website Development",
       timeframe: "Ongoing",
       content: "The new website is now live! The development will continue as we continue to improve and recieve feedback.",
       //tags: ["Beta Testing", "User Experience", "Quiz Development"],
       //link: "Learn more about joining the beta →",
       borderColor: "border-accent",
+      badgeColor: "bg-primary text-primary-foreground"
+    },
+    {
+      title: "No code Design Prototype",
+      timeframe: "Due 31st",
+      content: "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
+      //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+      //link: "Learn more about joining the beta →",
+      borderColor: "border-secondary",
       badgeColor: "bg-primary text-primary-foreground"
     },
     {
@@ -38,7 +38,7 @@ export default function Updates() {
 
   const roadmapItems = [
     {
-      title: "Q3 2023: Assessment & Profiles",
+      title: "Website Development",
       progress: 75,
       items: [
         "Core assessment quiz development",
@@ -47,12 +47,12 @@ export default function Updates() {
       ],
     },
     {
-      title: "Q4 2023: Community & Resources",
-      progress: 30,
+      title: "App Development",
+      progress: 5,
       items: [
-        "Community platform beta launch",
-        "Resource library with filtering by profile type",
-        "Expert-contributed strategy guides"
+        "Building initial framework",
+        "Creating the authentication portal (login)",
+        "Syncing with google calendar"
       ],
     }
   ];
@@ -60,28 +60,31 @@ export default function Updates() {
   return (
     <section>
       <Header></Header>
-      <div className="max-w-4xl mx-auto mb-12 px-4">
+      <div className="max-w-4xl mx-auto mb-12 px-2 md:px-4 lg:px-0">
         <h1 className="text-3xl md:text-4xl font-bold m-8 text-center justify-start">Development Updates</h1>
         
+        {/* Subscribe to updates Card */}
         <Card className="bg-white mb-8">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-primary-foreground text-xl font-semibold">Latest News</h2>
-              <Button className="px-4 py-2 text-sm bg-sidebar-border text-white rounded-lg hover:bg-accent transition">
+              {/* <Button className="px-4 py-2 text-sm bg-sidebar-border text-white rounded-lg hover:bg-accent transition">
                 Subscribe to Updates
-              </Button>
+              </Button> */}
             </div>
             <p className="text-primary-foreground">
               Stay informed about our progress, upcoming features, and how you can get involved in shaping the future of Flowstate.
             </p>
           </CardContent>
         </Card>
+
+        {/* Update Cards */}
         <div className="space-y-8">
             {updates.map((update, index) => (
                 <Card key={index} className={`bg-white border-l-6 ${update.borderColor}`}>
                     <CardContent className="p-6">
-                        <div className="flex flex-wrap justify-between items-start mb-4">
-                            <h2 className="text-primary-foreground text-xl font-semibold">{update.title}</h2>
+                        <div className="flex flex-col-reverse sm:flex-row flex-wrap justify-between items-start mb-4">
+                            <h2 className="pt-2 md:pt-0 text-primary-foreground text-xl font-semibold">{update.title}</h2>
                             <Badge
                                 variant="outline"
                                 className={`${update.badgeColor} bg-sidebar-border text-sidebar-foreground text-sm font-medium px-3 py-1 rounded-full`}
@@ -108,6 +111,8 @@ export default function Updates() {
                 </Card>
             ))}
         </div>
+
+        {/* Roadmaps */}
         <div className="mt-16">
             <h2 className="text-2xl font-semibold mb-6">Development Roadmap</h2>
             <Card className="bg-white">

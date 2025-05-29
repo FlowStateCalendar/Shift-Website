@@ -8,7 +8,7 @@ export default function ContactPage() {
     <section>
       <Header></Header>
       <div className="bg-muted-background min-h-screen flex items-center justify-center pt-12 md:pt-16 pb-16">
-        <div className="w-full max-w-screen-xl mx-auto px-6 xl:px-0">
+        <div className="w-full max-w-screen-xl mx-auto px-2 md:px-4 lg:px-0">
           <b className="text-muted-foreground">Contact Us</b>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
             We&apos;d love to hear from you
@@ -16,7 +16,7 @@ export default function ContactPage() {
           <p className="mt-4 text-base sm:text-lg">
             Help us shape the future of neurodiversity.
           </p>
-          <div className="mt-14 md:mt-24 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="mt-14 md:mt-24 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
             <div className="bg-secondary text-primary-foreground p-6 pb-10 rounded-lg">
               <div className="h-12 w-12 flex items-center justify-center bg-background text-foreground rounded-full">
                 <MailIcon />

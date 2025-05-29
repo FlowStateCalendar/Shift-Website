@@ -15,8 +15,8 @@ export default function Header() {
   return (
     <header className="w-full border-b border-foreground/20 bg-background text-foreground shadow-sm">
       {showModal && <Modal onClose={() => setShowModal(false)}/>}
-      <div className="container mx-auto flex items-center py-4 px-6">
-        <div className="md:hidden">
+      <div className="relative container mx-auto flex items-center py-4 px-6">
+        <div className="absolute left-6 md:hidden">
           <MobileMenu/> 
         </div>
         

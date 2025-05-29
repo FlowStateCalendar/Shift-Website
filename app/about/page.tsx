@@ -39,7 +39,7 @@ export default function About() {
     return (
         <section>
             <Header></Header>
-            <div className="my-10 max-w-4xl mx-auto">
+            <div className="my-10 lg:px-0 md:px-4 px-2 max-w-4xl mx-auto">
                 <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Flowstate</h1>
 
                 <div className="bg-primary text-primary-foreground rounded-xl shadow-md overflow-hidden mb-12">
