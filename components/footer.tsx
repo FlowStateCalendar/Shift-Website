@@ -1,4 +1,4 @@
-import { Twitter, Instagram, Github } from "lucide-react";
+import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -13,9 +13,7 @@ export default function Footer() {
                             </div>
                             <span className="ml-3 text-xl font-bold">Flowstate</span>
                         </Link>
-                        <p className="mb-4 max-w-xs">
-                            Giving neurodiverse individuals the ability to thrive.
-                        </p>
+                        <p className="mb-4 max-w-xs">Giving neurodiverse individuals the ability to thrive.</p>
                         <div className="flex space-x-4">
                             {/* <a href="#" className="text-neutral-400 hover:text-white transition" aria-label="Twitter">
                                 <Twitter className="h-6 w-6" />

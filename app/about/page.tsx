@@ -1,40 +1,40 @@
 /* eslint-disable @next/next/no-img-element */
 import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Users, Shield, UserPlus } from "lucide-react";
+// import { Zap, Users, Shield, UserPlus } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export default function About() {
-    const values = [
-        {
-            title: "Empowerment",
-            description: "Providing tools that build confidence and independence",
-            icon: <Zap className="h-6 w-6" />,
-            bgColor: "bg-blue-100",
-            textColor: "text-primary-foreground",
-        },
-        {
-            title: "Inclusivity",
-            description: "Designing for diverse cognitive, sensory, and emotional experiences",
-            icon: <UserPlus className="h-6 w-6" />,
-            bgColor: "bg-green-100",
-            textColor: "text-primary-foreground",
-        },
-        {
-            title: "Trust",
-            description: "Building technology with transparency and evidence-based approaches",
-            icon: <Shield className="h-6 w-6" />,
-            bgColor: "bg-purple-100",
-            textColor: "text-primary-foreground",
-        },
-        {
-            title: "Community",
-            description: "Fostering connection and shared learning between users",
-            icon: <Users className="h-6 w-6" />,
-            bgColor: "bg-yellow-100",
-            textColor: "text-primary-foreground",
-        },
-    ];
+    // const values = [
+    //     {
+    //         title: "Empowerment",
+    //         description: "Providing tools that build confidence and independence",
+    //         icon: <Zap className="h-6 w-6" />,
+    //         bgColor: "bg-blue-100",
+    //         textColor: "text-primary-foreground",
+    //     },
+    //     {
+    //         title: "Inclusivity",
+    //         description: "Designing for diverse cognitive, sensory, and emotional experiences",
+    //         icon: <UserPlus className="h-6 w-6" />,
+    //         bgColor: "bg-green-100",
+    //         textColor: "text-primary-foreground",
+    //     },
+    //     {
+    //         title: "Trust",
+    //         description: "Building technology with transparency and evidence-based approaches",
+    //         icon: <Shield className="h-6 w-6" />,
+    //         bgColor: "bg-purple-100",
+    //         textColor: "text-primary-foreground",
+    //     },
+    //     {
+    //         title: "Community",
+    //         description: "Fostering connection and shared learning between users",
+    //         icon: <Users className="h-6 w-6" />,
+    //         bgColor: "bg-yellow-100",
+    //         textColor: "text-primary-foreground",
+    //     },
+    // ];
 
     return (
         <section>
@@ -52,15 +52,18 @@ export default function About() {
                             />
                         </div>
                         <div className="p-8 md:w-1/2">
-                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">Our Mission</h2>
+                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">
+                                Our Mission
+                            </h2>
                             <p className="mb-4">
-                                Flowstate exists to unlock the full potential of neurodiverse minds.
-                                We believe everyone deserves the tools to achieve their goals - no matter how their brain works.
+                                Flowstate exists to unlock the full potential of neurodiverse minds. We believe everyone
+                                deserves the tools to achieve their goals - no matter how their brain works.
                             </p>
                             <p className="">
-                                That&apos;s why we&apos;re building a productivity tool designed for neurodivergent thinkers, by neurodivergent thinkers. 
-                                Instead of fighting against the challenges that come with ADHD, autism, dyslexia and more, 
-                                Flowstate turns them into strengths - helping you build momentum, stay motivated, and actually reach the finish line. 
+                                That&apos;s why we&apos;re building a productivity tool designed for neurodivergent
+                                thinkers, by neurodivergent thinkers. Instead of fighting against the challenges that
+                                come with ADHD, autism, dyslexia and more, Flowstate turns them into strengths - helping
+                                you build momentum, stay motivated, and actually reach the finish line.
                             </p>
                         </div>
                     </div>
@@ -69,21 +72,29 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     <Card className="bg-secondary">
                         <CardContent className="p-8">
-                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">How Our App Works</h2>
+                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">
+                                How Our App Works
+                            </h2>
                             <p className="text-primary-foreground mb-4">
-                                This means you get that dopamine hit even from small tasks such as brushing your teeth. Points earned can be spent to upgrade your own aquarium.
-                                Flowstate uses rewards as a form of motivation, when you complete any task you get a reward equal to the effort of the task. 
+                                This means you get that dopamine hit even from small tasks such as brushing your teeth.
+                                Points earned can be spent to upgrade your own aquarium. Flowstate uses rewards as a
+                                form of motivation, when you complete any task you get a reward equal to the effort of
+                                the task.
                             </p>
                         </CardContent>
                     </Card>
                     <Card className="bg-accent">
                         <CardContent className="p-8">
-                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">What&apos;s Your Job</h2>
+                            <h2 className="text-primary-foreground text-2xl font-semibold mb-4 text-center">
+                                What&apos;s Your Job
+                            </h2>
                             <p className="text-primary-foreground mb-4">
-                                Your only job? Show up as yourself. Flowstate isn&apos;t about fixing you - it&apos;s about supporting how your brain already works. 
+                                Your only job? Show up as yourself. Flowstate isn&apos;t about fixing you - it&apos;s
+                                about supporting how your brain already works.
                             </p>
                             <p className="text-primary-foreground">
-                                Let us know what works for you and share your thoughts if you think there could be any improvements, help us to build an app that will last.
+                                Let us know what works for you and share your thoughts if you think there could be any
+                                improvements, help us to build an app that will last.
                             </p>
                         </CardContent>
                     </Card>
