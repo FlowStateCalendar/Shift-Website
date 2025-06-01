@@ -48,7 +48,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
         } catch (error) {
             console.error("Submission error:", error);
             // Add toast
-            toast("X Make sure to use valid email which hasn't been registered.");
+            toast("X Make sure to use a valid email which hasn't already been registered.");
         }
     };
 
