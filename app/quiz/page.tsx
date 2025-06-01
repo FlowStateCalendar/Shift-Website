@@ -4,6 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { useQuizStore } from "@/lib/store";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { ModeToggle } from "@/components/theme-mode-toggle";
 
 export default function QuizPage() {
     const router = useRouter();
@@ -112,18 +113,18 @@ export default function QuizPage() {
                             <Progress className="w-full" value={currentQuestionIndex * 10} />
                         </div>
                     </div>
-                    <div className="flex flex-col items-center justify-center w-full bg-muted rounded-lg p-4">
-                        <p className="text-2xl mb-2">{quizData[currentQuestionIndex].question}</p>
+                    <div className="flex flex-col items-center justify-center w-full bg-primary rounded-lg p-4">
+                        <p className="text-background text-2xl mb-2">{quizData[currentQuestionIndex].question}</p>
                         {quizData[currentQuestionIndex].answerFormat == "ATNslider" ? (
                             <div className="flex flex-col items-center mt-10 w-full">
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-start mr-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(0) : nextQuestion(1)}>
+                                        <Button className="hover:bg-background/75 bg-background text-foreground w-2/3 text-start mr-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(0) : nextQuestion(1)}>
                                             Yes
                                         </Button>
                                     </div>
                                     <div className="flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-end ml-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(1) : nextQuestion(0)}>
+                                        <Button className="hover:bg-background/75 bg-background text-foreground w-2/3 text-end ml-4" onClick={() => currentQuestionIndex<4 || currentQuestionIndex==6 || currentQuestionIndex==9 ? nextQuestion(1) : nextQuestion(0)}>
                                             No
                                         </Button>
                                     </div>
@@ -134,13 +135,13 @@ export default function QuizPage() {
                                 <div className="flex flex-row items-center justify-center w-full mb-4">
                                     <div className="flex flex-col items-center w-1/3">
                                         <Button
-                                            className="w-2/3 text-start mr-4"
+                                            className="hover:bg-background/75 bg-background text-foreground w-2/3 text-start mr-4"
                                             onClick={() => submitAnswer("Android")}
                                         >
                                             Android
                                         </Button>
                                     </div>
-                                    <div className="flex flex-col items-center w-1/3">
+                                    <div className="hover:bg-background/75 bg-background text-foreground flex flex-col items-center w-1/3">
                                         <Button className="w-2/3 text-start ml-4" onClick={() => submitAnswer("Ios")}>
                                             iOS
                                         </Button>
