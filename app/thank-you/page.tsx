@@ -34,8 +34,8 @@ export default function ThankYou() {
             case "low":
                 return (
                     <>
-                        Your productivity score is <b className="text-destructive-foreground">Low</b> at{" "}
-                        <b className="text-destructive-foreground">{score}</b>, giving you lots of opportunity for
+                        Your productivity score is <b className="text-accent">Low</b> at{" "}
+                        <b className="text-accent">{score}</b>, giving you lots of opportunity for
                         improvement.
                         <br />
                         <br />
@@ -46,8 +46,8 @@ export default function ThankYou() {
             case "medium":
                 return (
                     <>
-                        Your productivity score is <b className="text-destructive-foreground">Medium</b> at{" "}
-                        <b className="text-destructive-foreground">{score}</b>, giving you great foundations and lots of
+                        Your productivity score is <b className="text-accent">Medium</b> at{" "}
+                        <b className="text-accent">{score}</b>, giving you great foundations and lots of
                         opportunity for improvement.
                         <br />
                         <br />
@@ -58,8 +58,8 @@ export default function ThankYou() {
             case "high":
                 return (
                     <>
-                        Your productivity score is <b className="text-destructive-foreground">High</b> at{" "}
-                        <b className="text-destructive-foreground">{score}</b>, meaning you truly value your time and
+                        Your productivity score is <b className="text-accent">High</b> at{" "}
+                        <b className="text-accent">{score}</b>, meaning you truly value your time and
                         want to maximise your efforts.
                         <br />
                         <br />
@@ -93,7 +93,7 @@ export default function ThankYou() {
             toast("✓ Successfully added to the waitlist!");
         } catch (error) {
             console.error("Submission error:", error);
-            toast("X Make sure to use valid email which hasn't been registered.");
+            toast("X Make sure to use a valid email which hasn't already been registered.");
         }
     };
 
@@ -101,7 +101,7 @@ export default function ThankYou() {
         <section>
             <Header />
             <div className="bg-background flex w-full h-screen flex-col items-center justify-start text-center">
-                <h1 className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl font-bold md:mb-2 lg:pt-10 p-4">
+                <h1 className="bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent text-4xl font-bold md:mb-2 lg:pt-10 p-4">
                     Thank you for taking the <br /> Neurodiverse Productivity Quiz
                 </h1>
                 <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
@@ -112,11 +112,11 @@ export default function ThankYou() {
                         <p className="lg:text-md md:mb-5 md:p-0 p-2">{renderScoreMessage()}</p>
                         <p className="lg:text-md md:mb-5 md:p-0 mb-2 p-2">
                             We are developing an app to help with productivity. Check out some of the features below and
-                            visit our about page (coming soon) to learn more.
+                            visit our <a className="hover:underline" href="/about">about page</a> to learn more.
                         </p>
                         <div className="text-left p-4 md:p-0">
-                            <h1 className="text-destructive-foreground lg:text-2xl mb-2">
-                                Our <b className="text-destructive">Favourite 5 Features</b> of the app:
+                            <h1 className="text-accent lg:text-2xl mb-2">
+                                Our <b className="text-accent">Favourite 5 Features</b> of the app:
                             </h1>
                             <ul className="list-disc list-inside lg:text-md">
                                 <li>
