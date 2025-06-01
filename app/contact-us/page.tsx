@@ -27,7 +27,7 @@ export default function ContactPage() {
               </p>
               <Link
                 className="font-medium"
-                href="mailto:akashmoradiya3444@gmail.com"
+                href="mailto:flowstatecalendar@gmail.com"
               >
                 flowstatecalendar@gmail.com
               </Link>
@@ -53,7 +53,7 @@ export default function ContactPage() {
               <p className="mt-2.5 mb-4">
                 Come and say hi!
               </p>
-              <Link className="font-medium" href="#">
+              <Link className="font-medium" href="https://discord.gg/BWhRp769Ek" target="_blank" rel="noopener noreferrer">
                 Join our server
               </Link>
             </div>
