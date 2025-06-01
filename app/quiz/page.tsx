@@ -141,8 +141,11 @@ export default function QuizPage() {
                                             Android
                                         </Button>
                                     </div>
-                                    <div className="hover:bg-background/75 bg-background text-foreground flex flex-col items-center w-1/3">
-                                        <Button className="w-2/3 text-start ml-4" onClick={() => submitAnswer("Ios")}>
+                                    <div className="flex flex-col items-center w-1/3">
+                                        <Button 
+                                            className="hover:bg-background/75 bg-background text-foreground w-2/3 text-start ml-4" 
+                                            onClick={() => submitAnswer("Ios")}
+                                        >
                                             iOS
                                         </Button>
                                     </div>
