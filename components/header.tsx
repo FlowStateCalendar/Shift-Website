@@ -7,7 +7,8 @@ import { Button } from "./ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Modal } from "./modal";
 import { MobileMenu } from "./mobile-menu";
-//import { toast } from "sonner";
+import Image from "next/image";
+import logo from "@/components/assets/LogoOnlyCentred.png"
 
 export default function Header() {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -23,14 +24,12 @@ export default function Header() {
         <span className="ml-3 text-xl font-bold text-foreground flex justify-center md:justify-between w-full items-center">
           <div className="flex flex-row items-center justify-center gap-2">
             <Link href="/">
-              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
-                F
-              </div>
+              <Image className="rounded-full w-10 h-10" alt="Logo" src={logo}></Image>
             </Link>
+            
             <Link href="/">
               Flowstate
             </Link>
-            {/* <button onClick={() => toast("This is a test ✓ X")}>Press</button> */}
           </div>
 
           <div className="hidden md:flex">

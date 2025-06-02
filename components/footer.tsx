@@ -1,5 +1,7 @@
 import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/components/assets/LogoOnlyCentred.png"
 
 export default function Footer() {
     return (
@@ -8,9 +10,7 @@ export default function Footer() {
                 <div className="flex flex-wrap justify-between">
                     <div className="w-full md:w-1/3 mb-10 md:mb-0">
                         <Link href="/" className="flex items-center mb-4">
-                            <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
-                                F
-                            </div>
+                            <Image className="rounded-full w-10 h-10" alt="Logo" src={logo}></Image>
                             <span className="ml-3 text-xl font-bold">Flowstate</span>
                         </Link>
                         <p className="mb-4 max-w-xs">Giving neurodiverse individuals the ability to thrive.</p>
