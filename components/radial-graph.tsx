@@ -23,7 +23,7 @@ const chartConfig = {
 
 export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
     return (
-        <Card className="flex flex-col">
+        <Card className="shadow-foreground bg-background text-foreground flex flex-col">
             <CardHeader className="items-center justify-center pb-0">
                 <CardTitle>Your Score</CardTitle>
             </CardHeader>
@@ -40,7 +40,7 @@ export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
                             gridType="circle"
                             radialLines={false}
                             stroke="none"
-                            className="first:fill-muted last:fill-background"
+                            className="first:fill-accent last:fill-background"
                             polarRadius={[86, 74]}
                         />
                         <RadialBar dataKey="visitors" background cornerRadius={10} />
