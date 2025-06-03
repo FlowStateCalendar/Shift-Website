@@ -37,16 +37,20 @@ export default function Hero() {
             <Header></Header>
             {showModal && <Modal onClose={() => setShowModal(false)} />}
             <div className="flex justify-center h-screen bg-sky-300">
-                <div className="container flex flex-col items-center justify-center gap-10 lg:my-0 lg:flex-row">
+                <div className="container flex flex-col items-center justify-center gap-10 lg:my-0 lg:flex-row p-2">
                     <div className="flex flex-col gap-7 lg:w-2/3 bg-background/75 rounded-2xl p-8">
-                        <Image className="h-20 w-20" src={logo} alt="Logo"/>
                         <h2 className="text-5xl font-semibold text-foreground md:text-5xl lg:text-8xl">
-                            <span>Flowstate</span>
-                            <span className="text-foreground"> - letting neurodiversity thrive</span>
+                            <span className="flex flex-row justify-between"> 
+                                <div>
+                                    <h1>Flowstate </h1>  
+                                    <h2 className="text-2xl md:text-3xl lg:text-6xl">Built for the Neurodiverse</h2>
+                                </div>
+                                <Image className="rounded-sm w-20 h-20 md:w-50 md:h-50" src={logo} alt="Logo"/>
+                            </span>
                         </h2>
                         <p className="text-base text-foreground md:text-lg lg:text-xl">
-                            Your potential is real and we&apos;re just here to help you reach it. With the neurodiverse
-                            community, we&apos;re creating a tool that&apos;s finally built for your brain.
+                            Your potential is real and we&apos;re here to help you reach it. By collaborating with the neurodiverse
+                            community, we&apos;re creating a tool that&apos;s built for YOUR brain - not everyone else&apos;s.
                         </p>
                         <div className="flex flex-wrap items-start gap-5 lg:gap-7">
                             <Button asChild className="hover:cursor-pointer">
