@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Flowstate Quiz",
     description: "Find out your productivity score",
+    icons:{
+        icon: "/favicon.ico",
+    }
 };
 
 export default function RootLayout({
