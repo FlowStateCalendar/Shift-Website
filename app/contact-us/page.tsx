@@ -8,7 +8,7 @@ export default function ContactPage() {
     <section>
       <Header></Header>
       <div className="bg-muted-background min-h-screen flex items-center justify-center pt-12 md:pt-16 pb-16">
-        <div className="w-full max-w-screen-xl mx-auto px-2 md:px-4 lg:px-0">
+        <div className="w-full max-w-screen-xl mx-auto px-2 md:px-4 lg:px-2">
           <b className="text-muted-foreground">Contact Us</b>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
             We&apos;d love to hear from you
