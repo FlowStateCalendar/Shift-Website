@@ -13,7 +13,7 @@ export default function Updates() {
                 "The new website is now live! The development will continue as we continue to improve and recieve feedback.",
             //tags: ["Beta Testing", "User Experience", "Quiz Development"],
             //link: "Learn more about joining the beta →",
-            borderColor: "border-accent",
+            borderColor: "border-secondary",
             badgeColor: "bg-primary text-primary-foreground",
         },
         {
@@ -23,7 +23,7 @@ export default function Updates() {
                 "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
             //tags: ["Beta Testing", "User Experience", "Quiz Development"],
             //link: "Learn more about joining the beta →",
-            borderColor: "border-secondary",
+            borderColor: "border-accent",
             badgeColor: "bg-primary text-primary-foreground",
         },
         {
