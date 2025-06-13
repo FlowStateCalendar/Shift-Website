@@ -8,29 +8,33 @@ import { toast } from "sonner";
 
 export default function ThankYou() {
     const [score, setScore] = useState(0);
-    const [scorelevel, setScoreLevel] = useState("");
-    let useremail: string;
+    const [scoreLevel, setScoreLevel] = useState("");
+    const [userEmail, setUserEmail] = useState("");
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
-        const score = Number(Number(searchParams.get("score")) * 10);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        useremail = String(searchParams.get("email"));
-        console.log("score", score);
-        let scorelevel = "";
-        if (score < 50) {
-            scorelevel = "low";
-        } else if (score < 80) {
-            scorelevel = "medium";
+        const rawScore = Number(searchParams.get("score"));
+        const scaledScore = rawScore * 10;
+        const email = searchParams.get("email") || "";
+
+        setScore(scaledScore);
+        setUserEmail(email);
+
+        console.log("initialScore", rawScore);
+        console.log("finalScore", scaledScore);
+        console.log("email", email);
+
+        if (scaledScore < 50) {
+            setScoreLevel("Low");
+        } else if (scaledScore < 80) {
+            setScoreLevel("Medium");
         } else {
-            scorelevel = "high";
+            setScoreLevel("High");
         }
-        setScore(score);
-        setScoreLevel(scorelevel);
     }, []);
 
     const renderScoreMessage = () => {
-        switch (scorelevel) {
+        switch (scoreLevel) {
             case "low":
                 return (
                     <>
@@ -83,7 +87,7 @@ export default function ThankYou() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    email: useremail,
+                    email: userEmail,
                 }),
             });
 
@@ -106,7 +110,7 @@ export default function ThankYou() {
                 </h1>
                 <div className="flex items-center justify-center flex-col md:flex-row-reverse md:items-start">
                     <div className="lg:w-100 lg:h-80 md:w-80 md:h-60 w-70 md:p-8 p-6">
-                        <RadialGraph score={score} scorelevel={scorelevel} />
+                        <RadialGraph score={score} scorelevel={scoreLevel} />
                     </div>
                     <div className="text-center md:text-left flex flex-col items-left justify-center lg:w-1/3 md:w-1/2 w-full md:p-6 lg:p-8">
                         <p className="lg:text-md md:mb-5 md:p-0 p-2">{renderScoreMessage()}</p>

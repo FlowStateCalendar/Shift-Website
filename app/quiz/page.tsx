@@ -96,8 +96,13 @@ export default function QuizPage() {
         })
             .then((res) => res.json())
             .then((data) => {
+                const params = new URLSearchParams({
+                    score: data.score,
+                    email: data.email,    
+                });
+
                 console.log(data);
-                router.push("/thank-you?score=" + data.score + "&email=" + data.email); //&email or just email?
+                router.push(`/thank-you?${params.toString()}`);
             });
     }
 
