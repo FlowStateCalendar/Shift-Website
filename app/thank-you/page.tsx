@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 import Header from "@/components/header";
 import { RadialGraph } from "../../components/radial-graph";
@@ -39,8 +40,7 @@ export default function ThankYou() {
                 return (
                     <>
                         Your productivity score is <b className="text-accent">Low</b> at{" "}
-                        <b className="text-accent">{score}</b>, giving you lots of opportunity for
-                        improvement.
+                        <b className="text-accent">{score}</b>, giving you lots of opportunity for improvement.
                         <br />
                         <br />
                         The great news is, this has been time well spent as you have to be able to know your starting
@@ -51,8 +51,8 @@ export default function ThankYou() {
                 return (
                     <>
                         Your productivity score is <b className="text-accent">Medium</b> at{" "}
-                        <b className="text-accent">{score}</b>, giving you great foundations and lots of
-                        opportunity for improvement.
+                        <b className="text-accent">{score}</b>, giving you great foundations and lots of opportunity for
+                        improvement.
                         <br />
                         <br />
                         The great news is, this has been time well spent as you have to be able to know your starting
@@ -63,8 +63,8 @@ export default function ThankYou() {
                 return (
                     <>
                         Your productivity score is <b className="text-accent">High</b> at{" "}
-                        <b className="text-accent">{score}</b>, meaning you truly value your time and
-                        want to maximise your efforts.
+                        <b className="text-accent">{score}</b>, meaning you truly value your time and want to maximise
+                        your efforts.
                         <br />
                         <br />
                         The great news is that this quiz has been time well spent as there is always room for
@@ -116,7 +116,11 @@ export default function ThankYou() {
                         <p className="lg:text-md md:mb-5 md:p-0 p-2">{renderScoreMessage()}</p>
                         <p className="lg:text-md md:mb-5 md:p-0 mb-2 p-2">
                             We are developing an app to help with productivity. Check out some of the features below and
-                            visit our <a className="hover:underline" href="/about">about page</a> to learn more.
+                            visit our{" "}
+                            <a className="hover:underline" href="/about">
+                                about page
+                            </a>{" "}
+                            to learn more.
                         </p>
                         <div className="text-left p-4 md:p-0">
                             <h1 className="text-accent lg:text-2xl mb-2">
