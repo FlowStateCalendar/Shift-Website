@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { PortableText, type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -11,18 +12,14 @@ const POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][0]`;
 const { projectId, dataset } = client.config();
 
 const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+    projectId && dataset ? imageUrlBuilder({ projectId, dataset }).image(source) : null;
 
 const options = { next: { revalidate: 30 } };
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await client.fetch<SanityDocument>(POST_QUERY, params, options);
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+    const resolvedParams = await params;
+
+    const post = await client.fetch<SanityDocument>(POST_QUERY, resolvedParams, options);
 
   if (!post) {
     return (

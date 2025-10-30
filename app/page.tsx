@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
@@ -7,7 +8,7 @@ import Header from "@/components/header";
 import { useState } from "react";
 import { Modal } from "@/components/modal";
 import Logo from "@/components/assets/LogoOnlyCentred.png";
-import BG from "@/components/assets/bg1.jpg"
+import BG from "@/components/assets/bg1.jpg";
 import Image from "next/image";
 
 // interface HeroProps {
@@ -41,15 +42,8 @@ export default function Hero() {
 
             {/* Background Image */}
             <div className="absolute inset-0 -z-10">
-                <Image 
-                    src={BG} 
-                    alt="Background" 
-                    fill
-                    className="object-cover opacity"
-                    priority
-                />
+                <Image src={BG} alt="Background" fill className="object-cover opacity" priority />
             </div>
-            
 
             {showModal && <Modal onClose={() => setShowModal(false)} />}
 
@@ -58,13 +52,13 @@ export default function Hero() {
                 <div className="container flex flex-col items-center justify-center gap-10 lg:flex-row">
                     <div className="flex flex-col gap-7 lg:w-2/3 bg-background/90 rounded-2xl p-8 z-10">
                         <h2 className="text-5xl font-semibold text-foreground md:text-6xl lg:text-8xl">
-                            <span className="flex flex-row justify-between"> 
+                            <span className="flex flex-row justify-between">
                                 <div>
                                     <h1>Shift Habits </h1>  
                                     <h2 className="text-2xl md:text-4xl lg:text-6xl">Built for the Neurodiverse</h2>
                                 </div>
-                                <Image 
-                                    className="rounded-sm w-20 h-20 md:w-35 md:h-35 lg:w-50 lg:h-50" 
+                                <Image
+                                    className="rounded-sm w-20 h-20 md:w-35 md:h-35 lg:w-50 lg:h-50"
                                     src={Logo}
                                     alt="Logo"
                                 />

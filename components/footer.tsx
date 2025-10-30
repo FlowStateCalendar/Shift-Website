@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/components/assets/LogoOnlyCentred.png"
+import logo from "@/components/assets/LogoOnlyCentred.png";
 
 export default function Footer() {
     return (
@@ -42,9 +43,9 @@ export default function Footer() {
                                     </a>
                                 </li> */}
                                 <li>
-                                    <a href="/updates" className="hover:text-accent transition">
+                                    <Link href="/updates" className="hover:text-accent transition">
                                         Updates
-                                    </a>
+                                    </Link>
                                 </li>
                                 {/* <li>
                                     <a href="#" className="hover:text-white transition">
