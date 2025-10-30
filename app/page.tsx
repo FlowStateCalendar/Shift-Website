@@ -60,7 +60,7 @@ export default function Hero() {
                         <h2 className="text-5xl font-semibold text-foreground md:text-6xl lg:text-8xl">
                             <span className="flex flex-row justify-between"> 
                                 <div>
-                                    <h1>Flowstate </h1>  
+                                    <h1>Shift Habits </h1>  
                                     <h2 className="text-2xl md:text-4xl lg:text-6xl">Built for the Neurodiverse</h2>
                                 </div>
                                 <Image 
@@ -71,7 +71,7 @@ export default function Hero() {
                             </span>
                         </h2>
                         <p className="text-base text-foreground md:text-lg lg:text-xl">
-                            Your potential is real and we&apos;re here to help you reach it. By collaborating with the neurodiverse
+                            Your potential is real and we&apos;re here to help you reach it. Collaborating with the neurodiverse
                             community, we&apos;re creating a tool that&apos;s built for YOUR brain - not everyone else&apos;s.
                         </p>
                         <div className="flex flex-wrap items-start gap-5 lg:gap-7">

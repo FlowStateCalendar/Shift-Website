@@ -3,8 +3,23 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { type SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
 
-export default function Updates() {
+
+const POSTS_QUERY = `*[
+  _type == "blogPost"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const options = { next: { revalidate: 30 } };
+
+// Async or not?
+export default async function Updates() {
+    const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+    
+    // Map the posts and use them within the content below
+
     const updates = [
         {
             title: "Website Development",

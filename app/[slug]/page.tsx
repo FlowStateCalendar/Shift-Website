@@ -3,6 +3,8 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/client";
 import Link from "next/link";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const POST_QUERY = `*[_type == "blogPost" && slug.current == $slug][0]`;
 
@@ -24,9 +26,13 @@ export default async function PostPage({
 
   if (!post) {
     return (
-      <main className="container mx-auto p-8">
-        <h1 className="text-2xl font-semibold">Post not found</h1>
-      </main>
+      <section>
+        <Header/>
+        <main className="container mx-auto p-8">
+          <h1 className="text-2xl font-semibold">Post not found</h1>
+        </main>
+        <Footer/>
+      </section>
     );
   }
 
@@ -35,24 +41,28 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
-      <Link href="/blog" className="hover:underline">
-        ← Back to posts
-      </Link>
-      {postImageUrl && (
-        <img
-          src={postImageUrl}
-          alt={post.title}
-          className="aspect-video rounded-xl"
-          width="550"
-          height="310"
-        />
-      )}
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-      <div className="prose">
-        <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-        {Array.isArray(post.body) && <PortableText value={post.body} />}
-      </div>
-    </main>
+    <section>
+      <Header/>
+      <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
+        <Link href="/blog" className="hover:underline">
+          ← Back to posts
+        </Link>
+        {postImageUrl && (
+          <img
+            src={postImageUrl}
+            alt={post.title}
+            className="aspect-video rounded-xl"
+            width="550"
+            height="310"
+          />
+        )}
+        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+        <div className="prose">
+          <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+          {Array.isArray(post.body) && <PortableText value={post.body} />}
+        </div>
+      </main>
+      <Footer/>
+    </section>
   );
 }
