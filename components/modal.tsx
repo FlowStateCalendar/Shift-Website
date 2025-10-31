@@ -1,10 +1,10 @@
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 
 export function Modal({ onClose }: { onClose: () => void }) {
-    const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
 
     useEffect(() => {
         // Lock scroll on mount
@@ -22,33 +22,37 @@ export function Modal({ onClose }: { onClose: () => void }) {
         }
     }
 
-    const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    function handleSubmit() {
+        onClose();
+    }
 
-        try {
-            const res = await fetch("/api/waitlist", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                }),
-            });
+    // const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
 
-            if (!res.ok) throw new Error("Failed to join waitlist");
+    //     try {
+    //         const res = await fetch("/api/waitlist", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({
+    //                 email: email,
+    //             }),
+    //         });
 
-            console.log("Successfully added!");
+    //         if (!res.ok) throw new Error("Failed to join waitlist");
 
-            // Add toast
-            onClose();
-            toast("✓ Successfully added to the waitlist!");
-        } catch (error) {
-            console.error("Submission error:", error);
-            // Add toast
-            toast("X Make sure to use a valid email which hasn't already been registered.");
-        }
-    };
+    //         console.log("Successfully added!");
+
+    //         // Add toast
+    //         onClose();
+    //         toast("✓ Successfully added to the waitlist!");
+    //     } catch (error) {
+    //         console.error("Submission error:", error);
+    //         // Add toast
+    //         toast("X Make sure to use a valid email which hasn't already been registered.");
+    //     }
+    // };
 
     return (
         <div
@@ -63,10 +67,33 @@ export function Modal({ onClose }: { onClose: () => void }) {
                 <div className="flex flex-col items-center m-8 p-4">
                     <h1 className="text-2xl font-bold pb-4">Join the Waitlist</h1>
                     <p className="wrap text-center max-w-md mb-4">
-                        Sign up to the waitlist below! We will send you progress updates and you will be the first to
-                        know when the app is released.
+                        Sign up to the waitlist below! We&apos;ll send progress updates and notify you when the app is released.
                     </p>
-                    <form className="flex flex-col" onSubmit={handleWaitlist}>
+
+                    {/* Mailchimp direct form */}
+                    <form
+                        action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&amp;id=551ba4d276&amp;f_id=004ed2e0f0://us21.list-manage.com/subscribe/post?u=a1b2c3d4e5f6g7h8i9j0&id=123abc456"
+                        method="POST"
+                        target="_blank"
+                        // onSubmit={handleSubmit}
+                        className="flex flex-col"
+                    >
+                        <p className="font-medium">Email:</p>
+                        <input
+                            type="email"
+                            name="EMAIL"
+                            placeholder="janedoe@gmail.com"
+                            required
+                            className="rounded-sm text-primary-foreground text-center bg-primary p-1"
+                        />
+                        <Button
+                            type="submit"
+                            className="mt-10 px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform focus:ring-4 focus:ring-primary/30"
+                        >
+                            Join the Waitlist
+                        </Button>
+                    </form>
+                    {/* <form className="flex flex-col" onSubmit={handleWaitlist}>
                         <p className="font-medium">Email:</p>
                         <input
                             placeholder="janedoe@gmail.com"
@@ -81,7 +108,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                         >
                             Join the Waitlist
                         </Button>
-                    </form>
+                    </form> */}
                 </div>
             </div>
         </div>
