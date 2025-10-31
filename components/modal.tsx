@@ -22,9 +22,9 @@ export function Modal({ onClose }: { onClose: () => void }) {
         }
     }
 
-    // function handleSubmit() {
-    //     onClose();
-    // }
+    function handleSubmit() {
+        setTimeout(() => onClose(), 500);
+    }
 
     // const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
     //     e.preventDefault();
@@ -75,9 +75,26 @@ export function Modal({ onClose }: { onClose: () => void }) {
                         action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&id=551ba4d276&f_id=004ed2e0f0"
                         method="POST"
                         target="_blank"
-                        // onSubmit={handleSubmit}
+                        onSubmit={handleSubmit}
                         className="flex flex-col"
                     >
+
+                        <p className="font-medium">First Name:</p>
+                        <input
+                            type="text"
+                            name="FNAME"
+                            placeholder="Jane"
+                            className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
+                        />
+
+                        <p className="font-medium">Last Name:</p>
+                        <input
+                            type="text"
+                            name="LNAME"
+                            placeholder="Doe"
+                            className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
+                        />
+
                         <p className="font-medium">Email:</p>
                         <input
                             type="email"
