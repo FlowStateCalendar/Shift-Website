@@ -79,7 +79,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                         className="flex flex-col"
                     >
 
-                        <p className="font-medium">First Name:</p>
+                        {/* <p className="font-medium">First Name:</p>
                         <input
                             type="text"
                             name="FNAME"
@@ -93,7 +93,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                             name="LNAME"
                             placeholder="Doe"
                             className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
-                        />
+                        /> */}
 
                         <p className="font-medium">Email:</p>
                         <input
