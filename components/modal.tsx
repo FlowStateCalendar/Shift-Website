@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react"; // useState
 import { Button } from "./ui/button";
 // import { toast } from "sonner";
 
@@ -22,9 +22,9 @@ export function Modal({ onClose }: { onClose: () => void }) {
         }
     }
 
-    function handleSubmit() {
-        onClose();
-    }
+    // function handleSubmit() {
+    //     onClose();
+    // }
 
     // const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
     //     e.preventDefault();
