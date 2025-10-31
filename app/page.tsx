@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { useState } from "react";
 import { Modal } from "@/components/modal";
-import Logo from "@/components/assets/LogoOnlyCentred.png";
+import Logo from "@/components/assets/AppStoreLogo.png";
 import BG from "@/components/assets/bg1.jpg";
 import Image from "next/image";
 
@@ -55,7 +55,7 @@ export default function Hero() {
                             <span className="flex flex-row justify-between">
                                 <div>
                                     <h1>Shift Habits </h1>  
-                                    <h2 className="text-2xl md:text-4xl lg:text-6xl">Built for the Neurodiverse</h2>
+                                    <h2 className="text-2xl md:text-4xl lg:text-5xl">Built for the Neurodiverse</h2>
                                 </div>
                                 <Image
                                     className="rounded-sm w-20 h-20 md:w-35 md:h-35 lg:w-50 lg:h-50"
