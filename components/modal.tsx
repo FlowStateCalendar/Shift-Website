@@ -72,7 +72,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
 
                     {/* Mailchimp direct form */}
                     <form
-                        action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&amp;id=551ba4d276&amp;f_id=004ed2e0f0://us21.list-manage.com/subscribe/post?u=a1b2c3d4e5f6g7h8i9j0&id=123abc456"
+                        action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&id=551ba4d276&f_id=004ed2e0f0"
                         method="POST"
                         target="_blank"
                         // onSubmit={handleSubmit}
@@ -86,7 +86,18 @@ export function Modal({ onClose }: { onClose: () => void }) {
                             required
                             className="rounded-sm text-primary-foreground text-center bg-primary p-1"
                         />
-                        <Button
+
+                        {/* Honeypot - Mailchimp compliance) */}
+                        <input
+                            type="text"
+                            name="b_9551a10a035942f6b4b9c76b4_551ba4d276"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            style={{ position: "absolute", left: "-5000px" }}
+                            aria-hidden="true"
+                            value=""
+                            readOnly
+                        />                        <Button
                             type="submit"
                             className="mt-10 px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform focus:ring-4 focus:ring-primary/30"
                         >
