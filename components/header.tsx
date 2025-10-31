@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Modal } from "./modal";
 import { MobileMenu } from "./mobile-menu";
 import Image from "next/image";
-import logo from "@/components/assets/LogoOnlyCentred.png"
+import logo from "@/components/assets/AppStoreLogo.png"
 
 export default function Header() {
   const [showModal, setShowModal] = useState<boolean>(false);

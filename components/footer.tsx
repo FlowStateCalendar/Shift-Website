@@ -2,7 +2,7 @@
 import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/components/assets/LogoOnlyCentred.png";
+import logo from "@/components/assets/AppStoreLogo.png";
 
 export default function Footer() {
     return (
