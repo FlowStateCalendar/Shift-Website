@@ -32,11 +32,11 @@ export default function Footer() {
                         <div>
                             <h3 className="font-semibold mb-4">Resources</h3>
                             <ul className="space-y-2">
-                                <li>
+                                {/* <li>
                                     <Link href="/quiz" className="hover:text-accent transition">
                                         Quiz
                                     </Link>
-                                </li>
+                                </li> */}
                                 {/* <li>
                                     <a href="#" className="hover:text-white transition">
                                         Community

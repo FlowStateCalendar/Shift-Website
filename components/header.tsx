@@ -35,7 +35,7 @@ export default function Header() {
           <div className="hidden md:flex">
             <div className="md:flex flex-row items-center">
               <Link href="/" className="font-medium text-base m-2 hover:text-accent transition">Home</Link>
-              <Link href="/leads" className="font-medium text-base m-2 hover:text-accent transition">Quiz</Link>
+              {/* <Link href="/leads" className="font-medium text-base m-2 hover:text-accent transition">Quiz</Link> */}
               <Link href="/about" className="font-medium text-base m-2 hover:text-accent transition">About</Link>
               <Link href="/updates" className="font-medium text-base m-2 hover:text-accent transition">Updates</Link>
               <Link href="/contact-us" className="font-medium text-base m-2 mr-4 hover:text-accent transition">Contact Us</Link>
