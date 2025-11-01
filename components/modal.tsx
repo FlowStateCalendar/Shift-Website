@@ -44,20 +44,19 @@ export function Modal({ onClose }: { onClose: () => void }) {
 
                     {/* Mailchimp direct form */}
                     <form
-                        action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&id=551ba4d276&f_id=004ed2e0f0"
+                        action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&id=551ba4d276"
                         method="POST"
                         target="_blank"
                         onSubmit={handleSubmit}
                         className="flex flex-col"
                     >
-
                         <p className="font-medium">First Name:</p>
                         <input
                             type="text"
                             name="FNAME"
                             placeholder="Jane"
                             required
-                            className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
+                            className="rounded-sm text-primary-foreground text-left bg-primary p-1 mb-2"
                         />
 
                         <p className="font-medium">Last Name:</p>
@@ -66,7 +65,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                             name="LNAME"
                             placeholder="Doe"
                             required
-                            className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
+                            className="rounded-sm text-primary-foreground text-left bg-primary p-1 mb-2"
                         />
 
                         <p className="font-medium">Email:</p>
@@ -75,7 +74,7 @@ export function Modal({ onClose }: { onClose: () => void }) {
                             name="EMAIL"
                             placeholder="janedoe@gmail.com"
                             required
-                            className="rounded-sm text-primary-foreground text-center bg-primary p-1"
+                            className="rounded-sm text-primary-foreground text-left bg-primary p-1"
                         />
 
                         {/* Honeypot - Mailchimp compliance) */}
