@@ -26,34 +26,6 @@ export function Modal({ onClose }: { onClose: () => void }) {
         setTimeout(() => onClose(), 500);
     }
 
-    // const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-
-    //     try {
-    //         const res = await fetch("/api/waitlist", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify({
-    //                 email: email,
-    //             }),
-    //         });
-
-    //         if (!res.ok) throw new Error("Failed to join waitlist");
-
-    //         console.log("Successfully added!");
-
-    //         // Add toast
-    //         onClose();
-    //         toast("✓ Successfully added to the waitlist!");
-    //     } catch (error) {
-    //         console.error("Submission error:", error);
-    //         // Add toast
-    //         toast("X Make sure to use a valid email which hasn't already been registered.");
-    //     }
-    // };
-
     return (
         <div
             id="modal-bg"
@@ -79,11 +51,12 @@ export function Modal({ onClose }: { onClose: () => void }) {
                         className="flex flex-col"
                     >
 
-                        {/* <p className="font-medium">First Name:</p>
+                        <p className="font-medium">First Name:</p>
                         <input
                             type="text"
                             name="FNAME"
                             placeholder="Jane"
+                            required
                             className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
                         />
 
@@ -92,8 +65,9 @@ export function Modal({ onClose }: { onClose: () => void }) {
                             type="text"
                             name="LNAME"
                             placeholder="Doe"
+                            required
                             className="rounded-sm text-primary-foreground text-center bg-primary p-1 mb-4"
-                        /> */}
+                        />
 
                         <p className="font-medium">Email:</p>
                         <input
