@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { type SanityDocument } from "next-sanity";
@@ -18,27 +17,27 @@ const options = { next: { revalidate: 30 } };
 export default async function Updates() {
     const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
     
-    const updates = [
-        {
-            title: "No code Design Prototype",
-            timeframe: "Due 31st",
-            content:
-                "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
-            //tags: ["Beta Testing", "User Experience", "Quiz Development"],
-            //link: "Learn more about joining the beta →",
-            borderColor: "border-accent",
-            badgeColor: "bg-primary text-primary-foreground",
-        },
-        {
-            title: "Starting App Development",
-            timeframe: "1 Week Ago",
-            content: "The first few bits of development have begun!",
-            //tags: ["Beta Testing", "User Experience", "Quiz Development"],
-            //link: "Learn more about joining the beta →",
-            borderColor: "border-secondary",
-            badgeColor: "bg-primary text-primary-foreground",
-        },
-    ];
+    // const updates = [
+    //     {
+    //         title: "No code Design Prototype",
+    //         timeframe: "Due 31st",
+    //         content:
+    //             "The first design prototype for the app is finished. Go check it out on social media, we would love feedback. ",
+    //         //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+    //         //link: "Learn more about joining the beta →",
+    //         borderColor: "border-accent",
+    //         badgeColor: "bg-primary text-primary-foreground",
+    //     },
+    //     {
+    //         title: "Starting App Development",
+    //         timeframe: "1 Week Ago",
+    //         content: "The first few bits of development have begun!",
+    //         //tags: ["Beta Testing", "User Experience", "Quiz Development"],
+    //         //link: "Learn more about joining the beta →",
+    //         borderColor: "border-secondary",
+    //         badgeColor: "bg-primary text-primary-foreground",
+    //     },
+    // ];
 
     return (
         <section>
