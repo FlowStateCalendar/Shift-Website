@@ -26,6 +26,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <section>
         <Header/>
         <main className="container mx-auto p-8">
+          <Link href="/blog" className="hover:underline">
+          ← Back to posts
+          </Link>
           <h1 className="text-2xl font-semibold">Post not found</h1>
         </main>
         <Footer/>
