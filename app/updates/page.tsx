@@ -64,8 +64,8 @@ export default async function Updates() {
                 {/* Update Cards */}
                 <div className="space-y-8">
                     {posts.map((post) => (
-                        <Link href={`/updates/${post.slug.current}`}>
-                            <Card className={`bg-white border-l-6 border-secondary`}> {/*key={post._id}*/}
+                        <Link key={post._id} href={`/updates/${post.slug.current}`}>
+                            <Card className={`bg-white border-l-6 border-secondary`}>
                                 <CardContent className="p-6">
                                     <div className="flex flex-col-reverse sm:flex-row flex-wrap justify-between items-start mb-4">
                                         <h2 className="pt-2 md:pt-0 text-primary-foreground text-xl font-semibold">
