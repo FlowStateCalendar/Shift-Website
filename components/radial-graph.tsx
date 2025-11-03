@@ -9,7 +9,7 @@ type ScoreChartProps = {
     scorelevel: string; // low, medium, high
 };
 
-const chartData = [{ browser: "safari", visitors: 8, fill: "var(--color-safari)" }];
+const chartData = [{ browser: "safari", visitors: 8, fill: "hsl(var(--chart-2))" }];
 
 const chartConfig = {
     visitors: {
@@ -28,11 +28,16 @@ export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
                 <CardTitle>Your Score</CardTitle>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
+                <style dangerouslySetInnerHTML={{__html: `
+                    .dark .recharts-radial-bar-sector {
+                        fill: #AFB2DC !important;
+                    }
+                `}} />
                 <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
                     <RadialBarChart
                         data={chartData}
-                        startAngle={0}
-                        endAngle={360 * (score / 100)}
+                        startAngle={90}
+                        endAngle={90 + 360 * (score / 100)}
                         innerRadius={80}
                         outerRadius={110}
                     >
@@ -40,10 +45,14 @@ export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
                             gridType="circle"
                             radialLines={false}
                             stroke="none"
-                            className="first:fill-accent last:fill-background"
+                            className="first:fill-accent last:fill-background dark:first:fill-background dark:last:fill-background"
                             polarRadius={[86, 74]}
                         />
-                        <RadialBar dataKey="visitors" background cornerRadius={10} />
+                        <RadialBar 
+                            dataKey="visitors" 
+                            background 
+                            cornerRadius={10}
+                        />
                         <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
                             <Label
                                 content={({ viewBox }) => {
@@ -65,7 +74,7 @@ export function RadialGraph({ score, scorelevel }: ScoreChartProps) {
                                                 <tspan
                                                     x={viewBox.cx}
                                                     y={(viewBox.cy || 0) + 24}
-                                                    className="fill-muted-foreground"
+                                                    className="fill-muted-foreground dark:fill-foreground"
                                                 >
                                                     {scorelevel}
                                                 </tspan>

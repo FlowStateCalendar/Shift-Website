@@ -55,21 +55,20 @@ export default function QuizPage() {
         },
     ];
 
-    // Doesnt handle the last question that is for submit answer
     function nextQuestion(score: number) {
-        console.log("quizData", quizData);
-        if (currentQuestionIndex != quizData.length) {
-            useQuizStore.getState().addtoQuiz([
-                {
-                    question: quizData[currentQuestionIndex].question,
-                    answer: score.toLocaleString(),
-                },
-            ]);
+        useQuizStore.getState().addtoQuiz([
+            {
+                question: quizData[currentQuestionIndex].question,
+                answer: score.toLocaleString(),
+            },
+        ]);
+        if (currentQuestionIndex < quizData.length - 1) {
             setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
         }
     }
 
     function submitAnswer(finalanswer: string) {
+        // Add the last question's answer to the quiz
         useQuizStore.getState().addtoQuiz([
             {
                 question: quizData[currentQuestionIndex].question,
@@ -77,33 +76,28 @@ export default function QuizPage() {
             },
         ]);
 
-        //todo make a page to add names and then submit
-        if (useQuizStore.getState().name == "" || useQuizStore.getState().email == "") {
-            alert("Please enter your name and email");
-            return;
-        }
+        // Get the complete quiz data
+        const store = useQuizStore.getState();
 
-        fetch("/api/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: useQuizStore.getState().email,
-                name: useQuizStore.getState().name,
-                quiz: useQuizStore.getState().quiz,
-            }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                const params = new URLSearchParams({
-                    score: data.score,
-                    email: data.email,    
-                });
+        // Calculate score client-side
+        const score = store.quiz.reduce((acc, question) => {
+            if (!isNaN(Number(question.answer))) {
+                return acc + Number(question.answer);
+            }
+            return acc;
+        }, 0);
 
-                console.log(data);
-                router.push(`/thank-you?${params.toString()}`);
-            });
+        // Pass all data via URL params (encode quiz as JSON string)
+        const params = new URLSearchParams({
+            score: score.toString(),
+            email: store.email,
+            firstName: store.firstName,
+            lastName: store.lastName,
+            quiz: JSON.stringify(store.quiz), // Serialize quiz array
+        });
+
+        // Navigate to thank-you page - always succeeds
+        router.push(`/thank-you?${params.toString()}`);
     }
 
     return (
@@ -112,8 +106,8 @@ export default function QuizPage() {
                 <div className="flex flex-col items-center justify-center w-full md:w-2/3 max-w-md p-4 rounded-lg">
                     <div className="flex flex-row items-center justify-between w-full mb-4">
                         <div className="flex flex-col items-center w-full">
-                            <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex} of 10</h1>
-                            <Progress className="w-full" value={currentQuestionIndex * 10} />
+                            <h1 className="text-xl font-bold mb-2 w-full">Question {currentQuestionIndex + 1} of {quizData.length}</h1>
+                            <Progress className="w-full" value={(currentQuestionIndex / quizData.length) * 100} />
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full bg-primary rounded-lg p-4">

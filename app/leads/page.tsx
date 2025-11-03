@@ -11,23 +11,36 @@ import Header from "@/components/header";
 
 export default function Home() {
     const router = useRouter();
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState("");
+
+    // Validate email format
+    const isValidEmailFormat = (email: string): boolean => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name || !email) {
-            return;
-        }
-        // Check if email is valid
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+
+        // Basic validation
+        if (!firstName || !lastName || !email) {
             return;
         }
 
+        // Validate email format
+        if (!isValidEmailFormat(email)) {
+            setEmailError("Please enter a valid email address");
+            return;
+        }
+
+        // Proceed with quiz
         useQuizStore.getState().reset();
         useQuizStore.getState().setemail(email);
-        useQuizStore.getState().setname(name);
+        useQuizStore.getState().setfirstName(firstName);
+        useQuizStore.getState().setlastName(lastName);
         router.push("/quiz");
     };
 
@@ -57,14 +70,27 @@ export default function Home() {
                     <CardContent className="">
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="text-left">
-                                <Label htmlFor="name" className="text-sm font-medium">
-                                    Your Name
+                                <Label htmlFor="firstName" className="text-sm font-medium">
+                                    First Name
                                 </Label>
                                 <Input
-                                    id="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder="Jane Smith"
+                                    id="firstName"
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    placeholder="Jane"
+                                    className="mt-1"
+                                />
+                            </div>
+
+                            <div className="text-left">
+                                <Label htmlFor="lastName" className="text-sm font-medium">
+                                    Last Name
+                                </Label>
+                                <Input
+                                    id="lastName"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                    placeholder="Smith"
                                     className="mt-1"
                                 />
                             </div>
@@ -77,10 +103,19 @@ export default function Home() {
                                     id="email"
                                     type="email"
                                     value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        // Clear error when user starts typing
+                                        if (emailError) {
+                                            setEmailError("");
+                                        }
+                                    }}
                                     placeholder="jane@example.com"
-                                    className="mt-1"
+                                    className={`mt-1 ${emailError ? "border-destructive" : ""}`}
                                 />
+                                {emailError && (
+                                    <p className="text-sm text-destructive mt-1">{emailError}</p>
+                                )}
                             </div>
 
                             <Button

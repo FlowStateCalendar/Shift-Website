@@ -11,19 +11,77 @@ export default function ThankYou() {
     const [score, setScore] = useState(0);
     const [scoreLevel, setScoreLevel] = useState("");
     const [userEmail, setUserEmail] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [isInMailchimp, setIsInMailchimp] = useState(false);
+    const [isCheckingMailchimp, setIsCheckingMailchimp] = useState(true);
+
+    // Save quiz results to database (non-blocking)
+    const saveToDatabase = async (email: string, firstName: string, lastName: string, quiz: any[]) => {
+        if (!email || !firstName || !lastName || !quiz || quiz.length === 0) {
+            return;
+        }
+
+        try {
+            await fetch("/api/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    firstName,
+                    lastName,
+                    quiz,
+                }),
+            });
+            // Silently succeed or fail - don't block user experience
+        } catch (error) {
+            console.error("Failed to save quiz to database:", error);
+            // Silently fail - don't show error to user
+        }
+    };
+
+    // Check if email exists in Mailchimp
+    const checkMailchimpStatus = async (email: string) => {
+        if (!email) {
+            setIsCheckingMailchimp(false);
+            return;
+        }
+
+        try {
+            const res = await fetch("/api/check-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await res.json();
+            setIsInMailchimp(data.exists || false);
+        } catch (error) {
+            console.error("Failed to check Mailchimp status:", error);
+            // If check fails, assume not in Mailchimp (allow them to try joining)
+            setIsInMailchimp(false);
+        } finally {
+            setIsCheckingMailchimp(false);
+        }
+    };
 
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const rawScore = Number(searchParams.get("score"));
         const scaledScore = rawScore * 10;
         const email = searchParams.get("email") || "";
+        const first = searchParams.get("firstName") || "";
+        const last = searchParams.get("lastName") || "";
+        const quizParam = searchParams.get("quiz") || "";
 
         setScore(scaledScore);
         setUserEmail(email);
-
-        console.log("initialScore", rawScore);
-        console.log("finalScore", scaledScore);
-        console.log("email", email);
+        setFirstName(first);
+        setLastName(last);
 
         if (scaledScore < 50) {
             setScoreLevel("Low");
@@ -32,11 +90,29 @@ export default function ThankYou() {
         } else {
             setScoreLevel("High");
         }
+
+        // Parse quiz data and save to database (non-blocking)
+        if (quizParam) {
+            try {
+                const quiz = JSON.parse(decodeURIComponent(quizParam));
+                // Save to database in background - don't await
+                saveToDatabase(email, first, last, quiz);
+            } catch (error) {
+                console.error("Failed to parse quiz data:", error);
+            }
+        }
+
+        // Check Mailchimp status
+        if (email) {
+            checkMailchimpStatus(email);
+        } else {
+            setIsCheckingMailchimp(false);
+        }
     }, []);
 
     const renderScoreMessage = () => {
         switch (scoreLevel) {
-            case "low":
+            case "Low":
                 return (
                     <>
                         Your productivity score is <b className="text-accent">Low</b> at{" "}
@@ -47,7 +123,7 @@ export default function ThankYou() {
                         point to make strides in the right direction. Congratulations on doing that today.
                     </>
                 );
-            case "medium":
+            case "Medium":
                 return (
                     <>
                         Your productivity score is <b className="text-accent">Medium</b> at{" "}
@@ -59,7 +135,7 @@ export default function ThankYou() {
                         point to make strides in the right direction. Congratulations on doing that today.
                     </>
                 );
-            case "high":
+            case "High":
                 return (
                     <>
                         Your productivity score is <b className="text-accent">High</b> at{" "}
@@ -76,29 +152,15 @@ export default function ThankYou() {
         }
     };
 
-    //EDIT THIS
-    const handleWaitlist = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        try {
-            const res = await fetch("/api/waitlist", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: userEmail,
-                }),
-            });
-
-            if (!res.ok) throw new Error("Failed to join waitlist");
-
-            console.log("Successfully added!");
-            toast("✓ Successfully added to the waitlist!");
-        } catch (error) {
-            console.error("Submission error:", error);
-            toast("X Make sure to use a valid email which hasn't already been registered.");
+    const handleWaitlist = (e: React.FormEvent<HTMLFormElement>) => {
+        // If already in Mailchimp, prevent submission and show message
+        if (isInMailchimp) {
+            e.preventDefault();
+            toast("You're already on the waitlist!");
+            return;
         }
+        // If not in Mailchimp, allow form submission to proceed
+        toast("✓ Successfully added to the waitlist!");
     };
 
     return (
@@ -153,12 +215,36 @@ export default function ThankYou() {
                         our progress!
                     </b>
                 </p>
-                <form onSubmit={handleWaitlist}>
+                <form
+                    action="https://app.us17.list-manage.com/subscribe/post?u=9551a10a035942f6b4b9c76b4&id=551ba4d276"
+                    method="POST"
+                    target="_blank"
+                    onSubmit={handleWaitlist}
+                >
+                    <input type="hidden" name="EMAIL" value={userEmail} />
+                    <input type="hidden" name="FNAME" value={firstName} />
+                    <input type="hidden" name="LNAME" value={lastName} />
+                    {/* Honeypot - Mailchimp compliance */}
+                    <input
+                        type="text"
+                        name="b_9551a10a035942f6b4b9c76b4_551ba4d276"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        style={{ position: "absolute", left: "-5000px" }}
+                        aria-hidden="true"
+                        value=""
+                        readOnly
+                    />
                     <Button
                         type="submit"
-                        className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30"
+                        disabled={isCheckingMailchimp || isInMailchimp}
+                        className="px-8 py-7 text-xl font-bold bg-primary hover:bg-primary/90 rounded-full shadow-lg transition transform hover:-translate-y-1 focus:ring-4 focus:ring-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Join the Waitlist
+                        {isCheckingMailchimp
+                            ? "Checking..."
+                            : isInMailchimp
+                              ? "Already on Waitlist"
+                              : "Join the Waitlist"}
                     </Button>
                 </form>
             </div>

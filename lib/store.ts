@@ -2,9 +2,11 @@ import { create } from "zustand";
 
 type quizState = {
     email: string;
-    name: string;
+    firstName: string;
+    lastName: string;
     setemail: (email: string) => void;
-    setname: (name: string) => void;
+    setfirstName: (firstName: string) => void;
+    setlastName: (lastName: string) => void;
     quiz: {
         question: string;
         answer: string;
@@ -17,12 +19,14 @@ type quizState = {
 
 export const useQuizStore = create<quizState>((set) => ({
     email: "",
-    name: "",
+    firstName: "",
+    lastName: "",
     quiz: [],
     score: 0,
     setScore: (score) => set({ score }),
     setemail: (email) => set({ email }),
-    setname: (name) => set({ name }),
+    setfirstName: (firstName) => set({ firstName }),
+    setlastName: (lastName) => set({ lastName }),
     addtoQuiz: (quiz) => set((state) => ({ quiz: [...state.quiz, ...quiz] })),
-    reset: () => set({ email: "", quiz: [] }),
+    reset: () => set({ email: "", firstName: "", lastName: "", quiz: [] }),
 }));
