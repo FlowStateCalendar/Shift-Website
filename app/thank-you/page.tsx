@@ -216,7 +216,7 @@ export default function ThankYou() {
                 </div>
                 <p className="lg:text-md md:mb-5 md:p-0 mb-2 p-2">
                     <b>
-                        If you want to really set the wheels in motion then FOLLOW US @Flowstate to stay up to date on
+                        If you want to really set the wheels in motion then FOLLOW @ShiftHabits and @rhysesummers on LinkedIn and socials to stay up to date with
                         our progress!
                     </b>
                 </p>

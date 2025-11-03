@@ -31,8 +31,8 @@ export async function generateMetadata(): Promise<Metadata> {
     const canonicalUrl = `${baseUrl}${cleanPathname}`;
 
     return {
-        title: "Flowstate Calendar",
-        description: "Find out your productivity score",
+        title: "Shift Habits",
+        description: "A Gamified Calendar built for the neurodiverse",
         alternates: {
             canonical: canonicalUrl,
         },

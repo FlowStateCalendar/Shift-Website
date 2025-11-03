@@ -40,7 +40,7 @@ export default function About() {
         <section>
             <Header></Header>
             <div className="my-10 lg:px-0 md:px-4 px-2 max-w-4xl mx-auto">
-                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Flowstate</h1>
+                <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Shift Habits</h1>
 
                 <div className="bg-primary text-primary-foreground rounded-xl shadow-md overflow-hidden mb-12">
                     <div className="md:flex">
@@ -56,13 +56,13 @@ export default function About() {
                                 Our Mission
                             </h2>
                             <p className="mb-4">
-                                Flowstate exists to unlock the full potential of neurodiverse minds. We believe everyone
+                                Shift exists to unlock the full potential of neurodiverse minds. We believe everyone
                                 deserves the tools to achieve their goals - no matter how their brain works.
                             </p>
                             <p className="">
                                 That&apos;s why we&apos;re building a productivity tool designed for neurodivergent
                                 thinkers, by neurodivergent thinkers. Instead of fighting against the challenges that
-                                come with ADHD, autism, dyslexia and more, Flowstate turns them into strengths - helping
+                                come with ADHD, autism, dyslexia and more, Shift turns them into strengths - helping
                                 you build momentum, stay motivated, and actually reach the finish line.
                             </p>
                         </div>
@@ -77,7 +77,7 @@ export default function About() {
                             </h2>
                             <p className="text-primary-foreground mb-4">
                                 This means you get that dopamine hit even from small tasks such as brushing your teeth.
-                                Points earned can be spent to upgrade your own aquarium. Flowstate uses rewards as a
+                                Points earned can be spent to upgrade your own aquarium. Shift uses rewards as a
                                 form of motivation, when you complete any task you get a reward equal to the effort of
                                 the task.
                             </p>
@@ -89,7 +89,7 @@ export default function About() {
                                 What&apos;s Your Job
                             </h2>
                             <p className="text-primary-foreground mb-4">
-                                Your only job? Show up as yourself. Flowstate isn&apos;t about fixing you - it&apos;s
+                                Your only job? Show up as yourself. Shift isn&apos;t about fixing you - it&apos;s
                                 about supporting how your brain already works.
                             </p>
                             <p className="text-primary-foreground">

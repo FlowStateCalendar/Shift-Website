@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="w-full md:w-1/3 mb-10 md:mb-0">
                         <Link href="/" className="flex items-center mb-4">
                             <Image className="rounded-full w-10 h-10" alt="Logo" src={logo}></Image>
-                            <span className="ml-3 text-xl font-bold">Flowstate</span>
+                            <span className="ml-3 text-xl font-bold">Shift Habits</span>
                         </Link>
                         <p className="mb-4 max-w-xs">Giving neurodiverse individuals the ability to thrive.</p>
                         <div className="flex space-x-4">
@@ -93,7 +93,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-foreground mt-5 pt-5 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} Flowstate Calendar. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Flowstate Thinking. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -28,7 +28,7 @@ export default function Header() {
             </Link>
             
             <Link href="/">
-              Flowstate
+              Shift Habits
             </Link>
           </div>
 

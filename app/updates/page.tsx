@@ -56,7 +56,7 @@ export default async function Updates() {
                         </div>
                         <p className="text-primary-foreground">
                             Stay informed about our progress, upcoming features, and how you can get involved in shaping
-                            the future of Flowstate.
+                            the future of Shift Habits.
                         </p>
                     </CardContent>
                 </Card>
