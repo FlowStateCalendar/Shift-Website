@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { headers } from "next/headers";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -14,13 +15,32 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "Flowstate Calendar",
-    description: "Find out your productivity score",
-    icons:{
-        icon: "/favicon.ico",
+const baseUrl = "https://shifthabits.co.uk";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const headersList = await headers();
+    const pathname = headersList.get("x-pathname") || "/";
+    
+    // Ensure pathname starts with / and remove trailing slash (except for root)
+    let cleanPathname = pathname.startsWith("/") ? pathname : `/${pathname}`;
+    if (cleanPathname !== "/" && cleanPathname.endsWith("/")) {
+        cleanPathname = cleanPathname.slice(0, -1);
     }
-};
+    
+    // Construct the full canonical URL (canonical URLs should not include query parameters)
+    const canonicalUrl = `${baseUrl}${cleanPathname}`;
+
+    return {
+        title: "Flowstate Calendar",
+        description: "Find out your productivity score",
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        icons: {
+            icon: "/favicon.ico",
+        },
+    };
+}
 
 export default function RootLayout({
     children,
