@@ -17,7 +17,12 @@ export default function ThankYou() {
     const [isCheckingMailchimp, setIsCheckingMailchimp] = useState(true);
 
     // Save quiz results to database (non-blocking)
-    const saveToDatabase = async (email: string, firstName: string, lastName: string, quiz: any[]) => {
+    const saveToDatabase = async (
+        email: string,
+        firstName: string,
+        lastName: string,
+        quiz: { question: string; answer: string }[]
+    ) => {
         if (!email || !firstName || !lastName || !quiz || quiz.length === 0) {
             return;
         }
