@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+"use client";
+
 import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";

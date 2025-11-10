@@ -30,6 +30,32 @@ export function CookieConsent() {
     }
   }, []);
 
+  // Listen for "openCookieDialog" event from footer button
+  useEffect(() => {
+    const handleOpenDialog = () => {
+      // Load existing consent preferences if available
+      const savedConsent = Cookies.get(COOKIE_NAME);
+      if (savedConsent) {
+        try {
+          const parsedConsent = JSON.parse(savedConsent) as ConsentType;
+          setConsent(parsedConsent);
+        } catch (error) {
+          console.error("Failed to parse saved consent:", error);
+          // Keep default consent values if parsing fails
+        }
+      }
+      // Open the dialog
+      setShowDialog(true);
+    };
+
+    window.addEventListener("openCookieDialog", handleOpenDialog);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("openCookieDialog", handleOpenDialog);
+    };
+  }, []);
+
   const saveConsent = (values: ConsentType) => {
     Cookies.set(COOKIE_NAME, JSON.stringify(values), { expires: 365 });
     setShowBanner(false);
