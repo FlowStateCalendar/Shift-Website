@@ -56,9 +56,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             height="310"
           />
         )}
-        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+        <h1 className="text-4xl font-bold mb-1">{post.title}</h1>
         <div className="prose">
-          <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+          <p className="mb-6">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
           {Array.isArray(post.body) && <PortableText value={post.body} />}
         </div>
       </main>
