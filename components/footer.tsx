@@ -87,6 +87,11 @@ export default function Footer() {
                                         Terms of Service
                                     </a>
                                 </li>
+                                <li>
+                                    <a className="hover:cursor-pointer hover:text-accent transition" onClick={() => window.dispatchEvent(new Event("openCookieDialog"))}>
+                                        Manage Cookies
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

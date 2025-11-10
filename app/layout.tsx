@@ -4,6 +4,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { headers } from "next/headers";
+import { CookieConsent } from "@/components/CookieConsent";
+import Script from "next/script";
+import Cookies from "js-cookie";
+
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -47,14 +51,32 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const consent = Cookies.get("shiftHabitsConsent");
+    const hasAnalyticsConsent = consent ? JSON.parse(consent).analytics : false;
+
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 {/* defaultTheme can be light/dark/system - system sets to users default theme */}
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     {children}
+                    <CookieConsent />
                     <Toaster richColors/>
                 </ThemeProvider>
+                {/* Conditionally load Google Analytics if consent given */}
+                {/* {hasAnalyticsConsent && (
+                <>
+                    <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX" strategy="afterInteractive" />
+                    <Script id="ga-init" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-XXXXXXX', { anonymize_ip: true });
+                    `}
+                    </Script>
+                </>
+                )} */}
             </body>
         </html>
     );
