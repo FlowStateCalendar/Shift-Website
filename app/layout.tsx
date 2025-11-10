@@ -5,7 +5,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { headers } from "next/headers";
 import { CookieConsent } from "@/components/CookieConsent";
-import Script from "next/script";
+// import Script from "next/script";
 import Cookies from "js-cookie";
 
 
@@ -53,6 +53,7 @@ export default function RootLayout({
 }>) {
     const consent = Cookies.get("shiftHabitsConsent");
     const hasAnalyticsConsent = consent ? JSON.parse(consent).analytics : false;
+    console.log(hasAnalyticsConsent);
 
     return (
         <html lang="en" suppressHydrationWarning>
