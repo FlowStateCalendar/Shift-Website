@@ -47,19 +47,21 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <Link href="/blog" className="hover:underline">
           ← Back to posts
         </Link>
-        {postImageUrl && (
-          <img
-            src={postImageUrl}
-            alt={post.title}
-            className="aspect-video rounded-xl"
-            width="550"
-            height="310"
-          />
-        )}
-        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-        <div className="prose">
-          <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-          {Array.isArray(post.body) && <PortableText value={post.body} />}
+        <div className="bg-primary text-primary-foreground rounded-xl p-10">
+          {postImageUrl && (
+            <img
+              src={postImageUrl}
+              alt={post.title}
+              className="aspect-video rounded-xl"
+              width="550"
+              height="310"
+            />
+          )}
+          <h1 className="text-4xl font-bold">{post.title}</h1>
+          <div className="prose">
+            <p className="mb-6">Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+            {Array.isArray(post.body) && <PortableText value={post.body} />}
+          </div>
         </div>
       </main>
       <Footer/>
